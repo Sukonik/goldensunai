@@ -22,7 +22,7 @@
 
 .brand {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: var(--gs-space-2);
   font-weight: 700;
   font-size: var(--gs-fs-md);
@@ -30,6 +30,10 @@
 }
 
 .brand__mark {
+  width: 26px;
+  height: 26px;
+  display: block;
+  flex-shrink: 0;
   filter: drop-shadow(0 0 8px rgba(232, 183, 75, 0.35));
 }
 

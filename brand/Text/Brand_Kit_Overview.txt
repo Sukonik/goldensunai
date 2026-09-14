@@ -1,0 +1,36 @@
+GOLDENSUN AI BRAND KIT ☀️
+
+Contents
+
+01_Logos
+A collection of the GoldenSunAI logo and visual identity iterations created so far, including the black-and-white mark, gold 2D mark, pixel-art forest/water versions, and glowing launch-art version.
+
+02_LinkedIn
+Ready-to-use company descriptions, taglines, profile copy, team structure, product blurbs, specialties, hashtags, and visual recommendations.
+
+03_Brand_Notes
+Brand voice, logo usage guidance, identity principles, and a logo manifest.
+
+Suggested LinkedIn setup
+
+Company avatar:
+GoldenSunAI_Logo_BlackWhite_RetroSunburst.png
+or GoldenSunAI_Selected_BlackWhite.png
+
+Company cover/banner:
+GoldenSunAI_Selected_PixelScene.png
+
+Launch / milestone artwork:
+GoldenSunAI_Selected_GlowingScene.png
+
+Primary general-purpose brand mark:
+GoldenSunAI_Selected_Gold_2D.png
+
+Recommended public naming:
+GoldenSun AI
+
+Recommended developer / GitHub naming:
+GoldenSunAI
+
+Signature:
+Built by Team GoldenSun. ☀️
