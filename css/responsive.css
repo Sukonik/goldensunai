@@ -2,6 +2,22 @@
    GoldenSunAI — Responsive rules (mobile-first breakpoints)
    ========================================================================== */
 
+/* -- Smallest phones --------------------------------------------------------
+   Header has three groups (brand, nav-or-nothing, theme+toggle) — give the
+   theme picker less room so it never crowds the toggle at narrow widths.
+   ------------------------------------------------------------------------*/
+@media (max-width: 479px) {
+  .theme-picker__select {
+    max-width: 5.5rem;
+    font-size: var(--gs-fs-xs);
+    padding-inline: var(--gs-space-2);
+  }
+
+  .site-header__controls {
+    gap: var(--gs-space-2);
+  }
+}
+
 /* -- Small tablets and up ------------------------------------------------*/
 @media (min-width: 640px) {
   .card-grid {

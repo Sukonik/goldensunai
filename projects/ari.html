@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("gs-theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ari Planner — GoldenSunAI</title>
   <meta
@@ -20,7 +28,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="../index.html">
-        <img class="brand__mark" src="../assets/logos/emblem-gold_512.png" alt="" width="26" height="26" aria-hidden="true" />
+        <span class="gs-emblem gs-emblem--nav" aria-hidden="true"></span>
         <span class="brand__name">Golden<span class="accent">Sun</span>AI</span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -31,23 +39,35 @@
           <li><a class="nav__link" href="../support.html">Support</a></li>
         </ul>
       </nav>
-      <button
-        class="nav-toggle"
-        aria-expanded="false"
-        aria-controls="nav-drawer"
-        aria-label="Open menu"
-      >
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-      </button>
+      <div class="site-header__controls">
+        <div class="theme-picker">
+          <label for="theme-select" class="visually-hidden">Theme</label>
+          <select id="theme-select" class="theme-picker__select" aria-label="Theme">
+            <option value="gold">☀️ Gold</option>
+            <option value="ruby">🔴 Ruby</option>
+            <option value="sapphire">🔵 Sapphire</option>
+            <option value="emerald">🟢 Emerald</option>
+            <option value="amethyst">🟣 Amethyst</option>
+          </select>
+        </div>
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-drawer"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="nav-drawer" id="nav-drawer" data-open="false" hidden>
     <div class="nav-drawer__header">
       <span class="brand">
-        <img class="brand__mark" src="../assets/logos/emblem-gold_512.png" alt="" width="26" height="26" aria-hidden="true" />
+        <span class="gs-emblem gs-emblem--nav" aria-hidden="true"></span>
         Golden<span class="accent">Sun</span>AI
       </span>
       <button class="nav-drawer__close" aria-label="Close menu">✕</button>
@@ -62,20 +82,20 @@
   </div>
 
   <main id="main">
-    <section class="section" style="padding-top: var(--gs-space-10);">
+    <section class="section">
       <div class="container">
         <p><a class="btn btn--ghost" href="../work.html">← Back to Work</a></p>
-        <div class="section-head" style="margin-top: var(--gs-space-5);">
-          <span class="badge badge--concept">Concept · Development</span>
-          <h1 class="section-head__title" style="margin-top: var(--gs-space-3);">🧭 Ari Planner</h1>
-          <p class="section-head__lede">
+        <div class="page-head page-head--sub">
+          <span class="badge">CONCEPT</span>
+          <h1 class="page-title">🧭 Ari Planner</h1>
+          <p class="page-lede">
             Personal planning and local discovery built around interests,
             environment, weather, time, energy, places, and possibility.
           </p>
         </div>
 
         <div class="panel">
-          <p class="section-head__lede">
+          <p class="page-lede">
             Ari Planner is in active concept development. A full project
             profile is coming as part of the GoldenSunAI portfolio system
             (PR2).
@@ -87,7 +107,7 @@
 
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <div class="stack" style="gap: var(--gs-space-2);">
+      <div class="stack">
         <p class="site-footer__brand">GoldenSunAI ☀️ — Explore Beyond.</p>
         <p class="site-footer__meta">Built by Team GoldenSun.</p>
       </div>

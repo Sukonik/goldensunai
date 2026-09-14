@@ -1,10 +1,32 @@
 /*
  * GoldenSunAI — main.js
- * Minimal vanilla JS: mobile navigation drawer only.
+ * Minimal vanilla JS: mobile navigation drawer + gemstone theme picker.
  * No frameworks, no build step, no dependencies.
+ *
+ * The theme itself is applied earlier, by a tiny inline script in each
+ * page's <head> (reads localStorage, sets data-theme before first paint —
+ * that one has to run before this file to avoid a flash of the wrong
+ * theme). This file only keeps the <select> in sync and saves changes.
  */
 (function () {
   "use strict";
+
+  var THEME_KEY = "gs-theme";
+  var themeSelect = document.querySelector(".theme-picker__select");
+
+  if (themeSelect) {
+    themeSelect.value = document.documentElement.getAttribute("data-theme") || "gold";
+
+    themeSelect.addEventListener("change", function () {
+      var theme = themeSelect.value;
+      document.documentElement.setAttribute("data-theme", theme);
+      try {
+        localStorage.setItem(THEME_KEY, theme);
+      } catch (e) {
+        /* private browsing / storage blocked — theme still applies for this load */
+      }
+    });
+  }
 
   var toggle = document.querySelector(".nav-toggle");
   var drawer = document.querySelector(".nav-drawer");

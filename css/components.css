@@ -29,14 +29,6 @@
   letter-spacing: -0.01em;
 }
 
-.brand__mark {
-  width: 26px;
-  height: 26px;
-  display: block;
-  flex-shrink: 0;
-  filter: drop-shadow(0 0 8px rgba(232, 183, 75, 0.35));
-}
-
 .brand__name {
   color: var(--gs-text-primary);
 }
@@ -68,6 +60,37 @@
 .nav__link[aria-current="page"] {
   color: var(--gs-text-primary);
   border-bottom-color: var(--gs-accent);
+}
+
+.site-header__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--gs-space-3);
+}
+
+/* -- Theme picker -----------------------------------------------------------
+   A native <select> — fully keyboard operable and screen-reader labeled
+   without any custom menu logic. Options always pair the swatch emoji with
+   the theme name, never color alone.
+   ------------------------------------------------------------------------*/
+
+.theme-picker__select {
+  appearance: none;
+  background: var(--gs-bg-raised)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23c9c0a8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    no-repeat right var(--gs-space-3) center;
+  background-size: 10px 6px;
+  border: 1px solid var(--gs-border);
+  border-radius: var(--gs-radius-sm);
+  color: var(--gs-text-secondary);
+  font-family: var(--gs-font-sans);
+  font-size: var(--gs-fs-sm);
+  padding: var(--gs-space-2) var(--gs-space-6) var(--gs-space-2) var(--gs-space-3);
+  max-width: 9rem;
+}
+
+.theme-picker__select:hover {
+  border-color: var(--gs-accent);
 }
 
 .nav-toggle {
@@ -172,18 +195,14 @@ body[data-drawer-open="true"] {
 .btn--primary {
   background: linear-gradient(
     180deg,
-    var(--gs-gold-500),
-    var(--gs-gold-600)
+    var(--gs-accent-strong),
+    var(--gs-accent)
   );
   color: var(--gs-text-on-gold);
 }
 
 .btn--primary:hover {
-  background: linear-gradient(
-    180deg,
-    var(--gs-gold-300),
-    var(--gs-gold-500)
-  );
+  filter: brightness(1.08);
 }
 
 .btn--secondary {
@@ -201,13 +220,7 @@ body[data-drawer-open="true"] {
 }
 
 .btn--ghost:hover {
-  color: var(--gs-gold-300);
-}
-
-.cta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--gs-space-4);
+  color: var(--gs-accent);
 }
 
 /* -- Hero ---------------------------------------------------------------*/
@@ -242,7 +255,7 @@ body[data-drawer-open="true"] {
 }
 
 .hero__lede {
-  max-width: 40rem;
+  max-width: var(--gs-measure);
   color: var(--gs-text-secondary);
   font-size: var(--gs-fs-md);
   margin-top: var(--gs-space-5);
@@ -254,7 +267,7 @@ body[data-drawer-open="true"] {
   font-size: var(--gs-fs-sm);
 }
 
-.hero .cta-row {
+.hero .page-actions {
   margin-top: var(--gs-space-8);
 }
 
@@ -290,14 +303,14 @@ body[data-drawer-open="true"] {
 
 .hg-lat {
   fill: none;
-  stroke: var(--gs-gold-600);
+  stroke: var(--gs-accent);
   stroke-width: 0.75;
   opacity: 0.3;
 }
 
 .hg-meridian {
   fill: none;
-  stroke: var(--gs-gold-500);
+  stroke: var(--gs-accent-strong);
   stroke-width: 1;
   animation: hg-sweep 18s linear infinite;
 }
@@ -319,12 +332,25 @@ body[data-drawer-open="true"] {
 }
 
 .hg-node {
-  fill: var(--gs-gold-500);
+  fill: var(--gs-accent-strong);
 }
 
 .hg-node--dim {
-  fill: var(--gs-gold-700);
+  fill: var(--gs-accent);
   opacity: 0.6;
+}
+
+.hg-stop-1 {
+  stop-color: var(--gs-accent-strong);
+}
+
+.hg-stop-2 {
+  stop-color: var(--gs-accent);
+}
+
+.hg-stop-3 {
+  stop-color: var(--gs-accent);
+  stop-opacity: 0;
 }
 
 .hg-glow {
@@ -355,14 +381,24 @@ body[data-drawer-open="true"] {
   }
 }
 
-/* -- Section headings ---------------------------------------------------*/
+/* -- Page masthead ---------------------------------------------------------
+   Shared shell for every secondary page: a small theme-aware emblem, a
+   kicker label, the page title, and a short lede. Replaces one-off
+   section-head markup + inline styles page-by-page.
+   ------------------------------------------------------------------------*/
 
-.section-head {
-  max-width: 40rem;
+.page-head {
+  max-width: var(--gs-measure);
   margin-bottom: var(--gs-space-8);
 }
 
-.section-head__eyebrow {
+.page-mark {
+  width: 48px;
+  height: 48px;
+  margin-bottom: var(--gs-space-4);
+}
+
+.page-kicker {
   color: var(--gs-accent-strong);
   font-family: var(--gs-font-mono);
   font-size: var(--gs-fs-xs);
@@ -370,14 +406,60 @@ body[data-drawer-open="true"] {
   letter-spacing: 0.14em;
 }
 
-.section-head__title {
+.page-title {
   font-size: var(--gs-fs-2xl);
   margin-top: var(--gs-space-3);
 }
 
-.section-head__lede {
+.page-lede {
   color: var(--gs-text-secondary);
   margin-top: var(--gs-space-3);
+}
+
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gs-space-4);
+  margin-top: var(--gs-space-6);
+}
+
+.page-actions--lg {
+  margin-top: var(--gs-space-8);
+}
+
+.page-head--sub {
+  margin-top: var(--gs-space-5);
+}
+
+.page-lede--muted {
+  margin-top: var(--gs-space-4);
+  color: var(--gs-text-muted);
+}
+
+/* -- Theme-aware emblem -----------------------------------------------------
+   One mono source image, recolored per theme via CSS mask instead of
+   shipping five colored files. Used for the nav mark, the drawer mark, and
+   every page-mark.
+   ------------------------------------------------------------------------*/
+
+.gs-emblem {
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: var(--gs-accent-strong);
+  -webkit-mask-image: url("../assets/logos/emblem-mono_512.png");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("../assets/logos/emblem-mono_512.png");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.gs-emblem--nav {
+  width: 26px;
+  height: 26px;
+  filter: drop-shadow(0 0 8px rgba(232, 183, 75, 0.35));
 }
 
 /* -- Cards ----------------------------------------------------------------*/
@@ -440,23 +522,6 @@ body[data-drawer-open="true"] {
   flex-wrap: wrap;
 }
 
-.preview-note {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--gs-space-1);
-  font-family: var(--gs-font-mono);
-  font-size: var(--gs-fs-xs);
-  color: var(--gs-text-muted);
-}
-
-.preview-note::before {
-  content: "";
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--gs-text-muted);
-}
-
 /* -- Status badges --------------------------------------------------------*/
 
 .badge {
@@ -469,22 +534,9 @@ body[data-drawer-open="true"] {
   font-size: var(--gs-fs-xs);
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  border: 1px solid var(--gs-border);
-  color: var(--gs-text-secondary);
-}
-
-.badge--live {
-  border-color: var(--gs-accent);
+  border: 1px solid var(--gs-accent);
   color: var(--gs-accent-strong);
-}
-
-.badge--soon {
-  border-color: var(--gs-cobalt-500);
-  color: var(--gs-cobalt-400);
-}
-
-.badge--concept {
-  color: var(--gs-text-muted);
+  white-space: nowrap;
 }
 
 /* -- Callout / support panels ----------------------------------------------*/
@@ -500,11 +552,61 @@ body[data-drawer-open="true"] {
   margin-top: var(--gs-space-5);
 }
 
+.panel-heading {
+  font-size: var(--gs-fs-lg);
+}
+
+.panel .card-grid {
+  margin-top: var(--gs-space-5);
+}
+
 .divider {
   height: 1px;
   background: var(--gs-border);
   border: 0;
   margin: var(--gs-space-8) 0;
+}
+
+/* -- Contact actions --------------------------------------------------------*/
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gs-space-4);
+}
+
+@media (max-width: 479px) {
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* -- Project meta (Built by / Status / Platform) ---------------------------*/
+
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gs-space-5);
+  margin: 0;
+}
+
+.project-meta > div {
+  min-width: 8rem;
+}
+
+.project-meta dt {
+  font-family: var(--gs-font-mono);
+  font-size: var(--gs-fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gs-text-muted);
+}
+
+.project-meta dd {
+  margin: var(--gs-space-1) 0 0;
+  color: var(--gs-text-primary);
+  font-size: var(--gs-fs-sm);
 }
 
 /* -- Footer -----------------------------------------------------------------*/
@@ -520,6 +622,10 @@ body[data-drawer-open="true"] {
   display: flex;
   flex-direction: column;
   gap: var(--gs-space-5);
+}
+
+.site-footer__inner .stack {
+  gap: var(--gs-space-2);
 }
 
 .site-footer__brand {
