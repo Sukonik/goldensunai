@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("gs-theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ClearSky — GoldenSunAI</title>
   <meta
@@ -20,7 +28,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="../index.html">
-        <img class="brand__mark" src="../assets/logos/emblem-gold_512.png" alt="" width="26" height="26" aria-hidden="true" />
+        <span class="gs-emblem gs-emblem--nav" aria-hidden="true"></span>
         <span class="brand__name">Golden<span class="accent">Sun</span>AI</span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -31,23 +39,35 @@
           <li><a class="nav__link" href="../support.html">Support</a></li>
         </ul>
       </nav>
-      <button
-        class="nav-toggle"
-        aria-expanded="false"
-        aria-controls="nav-drawer"
-        aria-label="Open menu"
-      >
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-      </button>
+      <div class="site-header__controls">
+        <div class="theme-picker">
+          <label for="theme-select" class="visually-hidden">Theme</label>
+          <select id="theme-select" class="theme-picker__select" aria-label="Theme">
+            <option value="gold">☀️ Gold</option>
+            <option value="ruby">🔴 Ruby</option>
+            <option value="sapphire">🔵 Sapphire</option>
+            <option value="emerald">🟢 Emerald</option>
+            <option value="amethyst">🟣 Amethyst</option>
+          </select>
+        </div>
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-drawer"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="nav-drawer" id="nav-drawer" data-open="false" hidden>
     <div class="nav-drawer__header">
       <span class="brand">
-        <img class="brand__mark" src="../assets/logos/emblem-gold_512.png" alt="" width="26" height="26" aria-hidden="true" />
+        <span class="gs-emblem gs-emblem--nav" aria-hidden="true"></span>
         Golden<span class="accent">Sun</span>AI
       </span>
       <button class="nav-drawer__close" aria-label="Close menu">✕</button>
@@ -58,34 +78,57 @@
       <li><a class="nav-drawer__link" href="../mission.html">Mission</a></li>
       <li><a class="nav-drawer__link" href="../support.html">Support</a></li>
     </ul>
+    <div class="theme-picker theme-picker--drawer">
+      <label for="theme-select-drawer" class="visually-hidden">Theme</label>
+      <select id="theme-select-drawer" class="theme-picker__select" aria-label="Theme">
+        <option value="gold">☀️ Gold</option>
+        <option value="ruby">🔴 Ruby</option>
+        <option value="sapphire">🔵 Sapphire</option>
+        <option value="emerald">🟢 Emerald</option>
+        <option value="amethyst">🟣 Amethyst</option>
+      </select>
+    </div>
     <p class="nav-drawer__footer">Built by Team GoldenSun. ☀️</p>
   </div>
 
   <main id="main">
-    <section class="section" style="padding-top: var(--gs-space-10);">
+    <section class="section">
       <div class="container">
         <p><a class="btn btn--ghost" href="../work.html">← Back to Work</a></p>
-        <div class="section-head" style="margin-top: var(--gs-space-5);">
-          <span class="badge badge--live">Live · Beta</span>
-          <h1 class="section-head__title" style="margin-top: var(--gs-space-3);">☁️ ClearSky</h1>
-          <p class="section-head__lede">
-            Weather and environmental intelligence spanning weather, wind,
-            rain, tides, air quality, UV, and coastal conditions.
+        <div class="page-head page-head--sub">
+          <span class="badge">BETA · LIVE</span>
+          <h1 class="page-title">☁️ ClearSky</h1>
+          <p class="page-kicker">Weather &amp; Environmental Intelligence</p>
+          <p class="page-lede">
+            Weather, tides, wind, rain, UV, air quality, and coastal
+            conditions.
           </p>
+          <div class="page-actions">
+            <a
+              class="btn btn--primary"
+              href="https://sukonik.github.io/weather-app/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Open the Full Website ↗</a
+            >
+          </div>
         </div>
 
         <div class="panel">
-          <p class="section-head__lede">
-            ClearSky is one of the first pieces of real, working software
-            from GoldenSunAI — built to make environmental conditions fast
-            and easy to understand, from everyday weather to coastal and
-            air quality detail.
-          </p>
-          <p class="section-head__lede" style="margin-top: var(--gs-space-4); color: var(--gs-text-muted);">
-            A full ClearSky project profile — screenshots, feature
-            breakdown, and a direct link to the live app — is coming as
-            part of the GoldenSunAI portfolio system (PR2).
-          </p>
+          <dl class="project-meta">
+            <div>
+              <dt>Built by</dt>
+              <dd>GoldenSunAI</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>Beta</dd>
+            </div>
+            <div>
+              <dt>Platform</dt>
+              <dd>Web</dd>
+            </div>
+          </dl>
         </div>
       </div>
     </section>
@@ -93,7 +136,7 @@
 
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <div class="stack" style="gap: var(--gs-space-2);">
+      <div class="stack">
         <p class="site-footer__brand">GoldenSunAI ☀️ — Explore Beyond.</p>
         <p class="site-footer__meta">Built by Team GoldenSun.</p>
       </div>

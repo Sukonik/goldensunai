@@ -33,13 +33,13 @@
   --gs-bg-raised: var(--gs-black-900);
   --gs-bg-card: var(--gs-black-800);
   --gs-border: var(--gs-line);
-  --gs-accent: var(--gs-gold-600);
-  --gs-accent-strong: var(--gs-gold-500);
-  --gs-focus: var(--gs-cobalt-400);
+  /* --gs-accent / --gs-accent-strong are set by the gemstone theme block
+     below (default: gold) rather than here, so every theme has one home. */
+  --gs-focus: var(--gs-accent-strong);
 
   /* -- Typography ---------------------------------------------------------*/
-  --gs-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  --gs-font-sans: "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --gs-font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono",
     Consolas, monospace;
 
@@ -53,7 +53,10 @@
   --gs-fs-3xl: 3.25rem;
 
   --gs-lh-tight: 1.15;
-  --gs-lh-normal: 1.55;
+  --gs-lh-normal: 1.45;
+
+  /* -- Readable content width ---------------------------------------------*/
+  --gs-measure: 36rem;
 
   /* -- Spacing scale ------------------------------------------------------*/
   --gs-space-1: 0.25rem;
@@ -79,4 +82,38 @@
   --gs-duration-fast: 120ms;
   --gs-duration-normal: 220ms;
   --gs-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* ==========================================================================
+   Gemstone themes
+   Gold is the default GoldenSunAI identity; the rest are alternate accent
+   themes, not separate site designs. Background stays black in every mode
+   — only the accent pair (and everything derived from it) shifts.
+   Set via [data-theme] on <html>, persisted to localStorage by js/main.js.
+   ========================================================================== */
+
+:root,
+[data-theme="gold"] {
+  --gs-accent: #d4a017;
+  --gs-accent-strong: #e8b74b;
+}
+
+[data-theme="ruby"] {
+  --gs-accent: #c83f52;
+  --gs-accent-strong: #f05a6b;
+}
+
+[data-theme="sapphire"] {
+  --gs-accent: #3a5cff;
+  --gs-accent-strong: #6b84ff;
+}
+
+[data-theme="emerald"] {
+  --gs-accent: #1f9d68;
+  --gs-accent-strong: #4ac58c;
+}
+
+[data-theme="amethyst"] {
+  --gs-accent: #8f55d6;
+  --gs-accent-strong: #b278f1;
 }

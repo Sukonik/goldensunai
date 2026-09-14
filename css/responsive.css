@@ -2,6 +2,18 @@
    GoldenSunAI — Responsive rules (mobile-first breakpoints)
    ========================================================================== */
 
+/* -- Narrow phones -----------------------------------------------------------
+   The GoldenSunAI wordmark is an atomic lockup (see .brand__name) and never
+   yields space. Below this width there isn't room for it plus a theme
+   picker plus the drawer toggle, so the picker moves into the drawer
+   instead of squeezing between the logo and the hamburger.
+   ------------------------------------------------------------------------*/
+@media (max-width: 559px) {
+  .site-header__controls .theme-picker {
+    display: none;
+  }
+}
+
 /* -- Small tablets and up ------------------------------------------------*/
 @media (min-width: 640px) {
   .card-grid {

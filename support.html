@@ -2,6 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("gs-theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Support GoldenSunAI</title>
   <meta
@@ -20,7 +28,7 @@
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="index.html">
-        <img class="brand__mark" src="assets/logos/emblem-gold_512.png" alt="" width="26" height="26" aria-hidden="true" />
+        <span class="gs-emblem gs-emblem--nav" aria-hidden="true"></span>
         <span class="brand__name">Golden<span class="accent">Sun</span>AI</span>
       </a>
       <nav class="nav" aria-label="Primary">
@@ -31,23 +39,35 @@
           <li><a class="nav__link" href="support.html" aria-current="page">Support</a></li>
         </ul>
       </nav>
-      <button
-        class="nav-toggle"
-        aria-expanded="false"
-        aria-controls="nav-drawer"
-        aria-label="Open menu"
-      >
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-        <span class="nav-toggle__bar"></span>
-      </button>
+      <div class="site-header__controls">
+        <div class="theme-picker">
+          <label for="theme-select" class="visually-hidden">Theme</label>
+          <select id="theme-select" class="theme-picker__select" aria-label="Theme">
+            <option value="gold">☀️ Gold</option>
+            <option value="ruby">🔴 Ruby</option>
+            <option value="sapphire">🔵 Sapphire</option>
+            <option value="emerald">🟢 Emerald</option>
+            <option value="amethyst">🟣 Amethyst</option>
+          </select>
+        </div>
+        <button
+          class="nav-toggle"
+          aria-expanded="false"
+          aria-controls="nav-drawer"
+          aria-label="Open menu"
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </button>
+      </div>
     </div>
   </header>
 
   <div class="nav-drawer" id="nav-drawer" data-open="false" hidden>
     <div class="nav-drawer__header">
       <span class="brand">
-        <img class="brand__mark" src="assets/logos/emblem-gold_512.png" alt="" width="26" height="26" aria-hidden="true" />
+        <span class="gs-emblem gs-emblem--nav" aria-hidden="true"></span>
         Golden<span class="accent">Sun</span>AI
       </span>
       <button class="nav-drawer__close" aria-label="Close menu">✕</button>
@@ -58,16 +78,27 @@
       <li><a class="nav-drawer__link" href="mission.html">Mission</a></li>
       <li><a class="nav-drawer__link" href="support.html">Support</a></li>
     </ul>
+    <div class="theme-picker theme-picker--drawer">
+      <label for="theme-select-drawer" class="visually-hidden">Theme</label>
+      <select id="theme-select-drawer" class="theme-picker__select" aria-label="Theme">
+        <option value="gold">☀️ Gold</option>
+        <option value="ruby">🔴 Ruby</option>
+        <option value="sapphire">🔵 Sapphire</option>
+        <option value="emerald">🟢 Emerald</option>
+        <option value="amethyst">🟣 Amethyst</option>
+      </select>
+    </div>
     <p class="nav-drawer__footer">Built by Team GoldenSun. ☀️</p>
   </div>
 
   <main id="main">
-    <section class="section" style="padding-top: var(--gs-space-10);">
+    <section class="section">
       <div class="container">
-        <div class="section-head">
-          <p class="section-head__eyebrow">Fuel the Sun ☀️</p>
-          <h1 class="section-head__title">Support GoldenSunAI</h1>
-          <p class="section-head__lede">
+        <div class="page-head">
+          <span class="gs-emblem page-mark" aria-hidden="true"></span>
+          <p class="page-kicker">Fuel the Sun ☀️</p>
+          <h1 class="page-title">Support GoldenSunAI</h1>
+          <p class="page-lede">
             GoldenSunAI is an independent software studio. Support helps
             fund development, hosting, research, testing, software,
             infrastructure, and continued experimentation across everything
@@ -76,8 +107,8 @@
         </div>
 
         <div class="panel">
-          <h2 style="font-size: var(--gs-fs-lg);">Where support goes</h2>
-          <div class="card-grid" style="margin-top: var(--gs-space-5);">
+          <h2 class="panel-heading">Where support goes</h2>
+          <div class="card-grid">
             <article class="card">
               <h3 class="card__title">Development</h3>
               <p class="card__desc">
@@ -104,10 +135,10 @@
 
         <hr class="divider" />
 
-        <div class="section-head">
-          <p class="section-head__eyebrow">How to support</p>
-          <h2 class="section-head__title">Direct support, coming soon.</h2>
-          <p class="section-head__lede">
+        <div class="page-head">
+          <p class="page-kicker">How to support</p>
+          <h2 class="page-title">Direct support, coming soon.</h2>
+          <p class="page-lede">
             We're keeping payments external and outside of this site for
             now. Options such as Venmo, PayPal, Stripe Payment Links, or
             Ko-fi are being evaluated — no financial information is
@@ -116,13 +147,23 @@
         </div>
 
         <div class="panel">
-          <p class="section-head__lede">
+          <p class="page-lede">
             In the meantime, the best way to support GoldenSunAI is to
-            explore the work, share it, and reach out directly.
+            explore the work and share it.
           </p>
-          <div class="cta-row" style="margin-top: var(--gs-space-6);">
+          <div class="page-actions">
             <a class="btn btn--primary" href="work.html">Explore Our Work →</a>
-            <a class="btn btn--secondary" href="mailto:hello@goldensunai.com">Get in touch →</a>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2 class="panel-heading">Get in touch</h2>
+          <p class="page-lede">
+            Questions, ideas, or feedback — reach Team GoldenSun directly.
+          </p>
+          <div class="contact-actions">
+            <a class="btn btn--primary" href="mailto:sukonikn51@gmail.com">Email Us</a>
+            <a class="btn btn--secondary" href="sms:+15164994258">Text Us</a>
           </div>
         </div>
       </div>
@@ -131,7 +172,7 @@
 
   <footer class="site-footer">
     <div class="container site-footer__inner">
-      <div class="stack" style="gap: var(--gs-space-2);">
+      <div class="stack">
         <p class="site-footer__brand">GoldenSunAI ☀️ — Explore Beyond.</p>
         <p class="site-footer__meta">Built by Team GoldenSun.</p>
       </div>
