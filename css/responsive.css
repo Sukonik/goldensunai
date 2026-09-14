@@ -1,0 +1,51 @@
+/* ==========================================================================
+   GoldenSunAI — Responsive rules (mobile-first breakpoints)
+   ========================================================================== */
+
+/* -- Small tablets and up ------------------------------------------------*/
+@media (min-width: 640px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .step-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* -- Desktop --------------------------------------------------------------*/
+@media (min-width: 900px) {
+  .nav {
+    display: block;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .split {
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: start;
+  }
+
+  .step-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .site-footer__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* -- Large desktop ----------------------------------------------------------*/
+@media (min-width: 1200px) {
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

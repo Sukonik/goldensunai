@@ -1,0 +1,49 @@
+GOLDENSUN AI — PRODUCT FAMILY ☀️
+
+☁️ ClearSky
+Weather and environmental intelligence.
+
+🧭 Ari Planner
+Personalized planning and local discovery.
+
+🧠 Capsule AI
+Personalization, context, archetypes, and recommendation intelligence.
+
+👁️ Q-Lens
+Contextual discovery and future visual / AR recommendation layer.
+
+🏞️ BlackBowAI
+Legal file management, document migration, search, review, and local AI tooling.
+
+🗺️ Golden Sun Atlas
+Portable AI computing platform.
+
+Atlas has two major forms:
+💻 Atlas Desktop — Windows and macOS
+💾 Atlas OS — bootable SSD-based Linux AI environment
+
+Shared Atlas components:
+🧠 Atlas Runtime
+⚙️ Model Router
+🧩 Agent Layer
+💾 Memory Layer
+🛠️ Tool System
+📊 Hardware Profiler
+🚦 Resource Manager
+
+ATLAS GEOGRAPHIC RELEASE CONVENTION
+
+Series = a larger geographic region, island, state, country, or related area.
+Version = a city, district, town, village, or locality within that Series.
+
+Example:
+🌊 Long Island Series
+Atlas 1.0 — Long Beach
+Atlas 1.1 — Island Park
+Atlas 1.2 — Baldwin
+Atlas 1.3 — Garden City
+
+Future Series can draw from New York, Florida, the Caribbean, and other places associated with the GoldenSun identity.
+
+Atlas line:
+Your AI environment, wherever you go.

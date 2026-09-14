@@ -1,0 +1,82 @@
+/* ==========================================================================
+   GoldenSunAI — Design Tokens
+   Black. Gold. Pixels. Technology. Exploration. Software. ☀️
+   ========================================================================== */
+
+:root {
+  /* -- Surfaces -------------------------------------------------------- */
+  --gs-black-950: #060504;
+  --gs-black-900: #0a0908;
+  --gs-black-800: #121009;
+  --gs-black-700: #1a160e;
+  --gs-line: #2a2418;
+
+  /* -- Gold family ------------------------------------------------------ */
+  --gs-gold-100: #fdf3d9;
+  --gs-gold-300: #f3d38a;
+  --gs-gold-500: #e8b74b;
+  --gs-gold-600: #d4a017;
+  --gs-gold-700: #9c760f;
+
+  /* -- Cobalt / Yves accent --------------------------------------------- */
+  --gs-cobalt-500: #3a5cff;
+  --gs-cobalt-400: #6b84ff;
+
+  /* -- Text --------------------------------------------------------------*/
+  --gs-text-primary: #f6f1e6;
+  --gs-text-secondary: #c9c0a8;
+  --gs-text-muted: #8f8672;
+  --gs-text-on-gold: #191305;
+
+  /* -- Semantic aliases --------------------------------------------------*/
+  --gs-bg: var(--gs-black-950);
+  --gs-bg-raised: var(--gs-black-900);
+  --gs-bg-card: var(--gs-black-800);
+  --gs-border: var(--gs-line);
+  --gs-accent: var(--gs-gold-600);
+  --gs-accent-strong: var(--gs-gold-500);
+  --gs-focus: var(--gs-cobalt-400);
+
+  /* -- Typography ---------------------------------------------------------*/
+  --gs-font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --gs-font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Roboto Mono",
+    Consolas, monospace;
+
+  --gs-fs-xs: 0.75rem;
+  --gs-fs-sm: 0.875rem;
+  --gs-fs-base: 1rem;
+  --gs-fs-md: 1.125rem;
+  --gs-fs-lg: 1.375rem;
+  --gs-fs-xl: 1.875rem;
+  --gs-fs-2xl: 2.5rem;
+  --gs-fs-3xl: 3.25rem;
+
+  --gs-lh-tight: 1.15;
+  --gs-lh-normal: 1.55;
+
+  /* -- Spacing scale ------------------------------------------------------*/
+  --gs-space-1: 0.25rem;
+  --gs-space-2: 0.5rem;
+  --gs-space-3: 0.75rem;
+  --gs-space-4: 1rem;
+  --gs-space-5: 1.5rem;
+  --gs-space-6: 2rem;
+  --gs-space-8: 3rem;
+  --gs-space-10: 4rem;
+  --gs-space-12: 6rem;
+
+  /* -- Shape / effects ------------------------------------------------------*/
+  --gs-radius-sm: 6px;
+  --gs-radius-md: 12px;
+  --gs-radius-lg: 20px;
+
+  --gs-shadow-card: 0 1px 0 rgba(232, 183, 75, 0.06) inset,
+    0 8px 24px rgba(0, 0, 0, 0.35);
+
+  --gs-container: 72rem;
+
+  --gs-duration-fast: 120ms;
+  --gs-duration-normal: 220ms;
+  --gs-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
