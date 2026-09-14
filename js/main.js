@@ -12,19 +12,28 @@
   "use strict";
 
   var THEME_KEY = "gs-theme";
-  var themeSelect = document.querySelector(".theme-picker__select");
+  // Two copies exist on every page: one in the header (hidden below 560px,
+  // per the mobile wordmark fix) and one in the drawer. Keep both in sync.
+  var themeSelects = document.querySelectorAll(".theme-picker__select");
 
-  if (themeSelect) {
-    themeSelect.value = document.documentElement.getAttribute("data-theme") || "gold";
+  if (themeSelects.length) {
+    var currentTheme = document.documentElement.getAttribute("data-theme") || "gold";
 
-    themeSelect.addEventListener("change", function () {
-      var theme = themeSelect.value;
-      document.documentElement.setAttribute("data-theme", theme);
-      try {
-        localStorage.setItem(THEME_KEY, theme);
-      } catch (e) {
-        /* private browsing / storage blocked — theme still applies for this load */
-      }
+    themeSelects.forEach(function (select) {
+      select.value = currentTheme;
+
+      select.addEventListener("change", function () {
+        var theme = select.value;
+        document.documentElement.setAttribute("data-theme", theme);
+        themeSelects.forEach(function (other) {
+          other.value = theme;
+        });
+        try {
+          localStorage.setItem(THEME_KEY, theme);
+        } catch (e) {
+          /* private browsing / storage blocked — theme still applies for this load */
+        }
+      });
     });
   }
 
