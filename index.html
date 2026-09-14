@@ -64,6 +64,57 @@
   <main id="main">
     <section class="hero">
       <div class="pixel-field" aria-hidden="true"></div>
+      <div class="hero__globe" aria-hidden="true">
+        <svg viewBox="0 0 480 480" role="img" focusable="false">
+          <defs>
+            <radialGradient id="hgGlowGradient" cx="35%" cy="88%" r="65%">
+              <stop offset="0%" stop-color="#f3d38a" stop-opacity="0.85" />
+              <stop offset="45%" stop-color="#d4a017" stop-opacity="0.35" />
+              <stop offset="100%" stop-color="#d4a017" stop-opacity="0" />
+            </radialGradient>
+            <clipPath id="hgClip">
+              <circle cx="280" cy="260" r="150" />
+            </clipPath>
+          </defs>
+
+          <path class="hg-arc" d="M 30 190 Q 280 100 500 250" />
+          <path class="hg-arc" d="M 60 360 Q 300 430 505 300" />
+
+          <circle class="hg-silhouette" cx="280" cy="260" r="150" />
+
+          <g clip-path="url(#hgClip)">
+            <rect x="130" y="110" width="300" height="300" fill="url(#hgGlowGradient)" class="hg-glow" />
+
+            <ellipse class="hg-lat" cx="280" cy="260" rx="150" ry="18" />
+            <ellipse class="hg-lat" cx="280" cy="210" rx="132" ry="12" />
+            <ellipse class="hg-lat" cx="280" cy="312" rx="128" ry="12" />
+
+            <ellipse class="hg-meridian" cx="280" cy="260" rx="150" ry="150" />
+            <ellipse class="hg-meridian hg-meridian--b" cx="280" cy="260" rx="150" ry="150" />
+
+            <!-- stylized landmass point-cluster, not literal geography -->
+            <g class="hg-node--dim">
+              <circle cx="228" cy="196" r="2.6" />
+              <circle cx="238" cy="204" r="2.2" />
+              <circle cx="220" cy="212" r="2.4" />
+              <circle cx="246" cy="216" r="2.6" />
+              <circle cx="232" cy="224" r="2.2" />
+              <circle cx="256" cy="230" r="2.4" />
+              <circle cx="214" cy="232" r="2" />
+              <circle cx="242" cy="240" r="2.6" />
+              <circle cx="262" cy="248" r="2.2" />
+              <circle cx="224" cy="250" r="2.4" />
+              <circle cx="250" cy="262" r="2" />
+              <circle cx="272" cy="222" r="2.2" />
+            </g>
+
+            <circle class="hg-node hg-glow" cx="336" cy="206" r="4" />
+          </g>
+
+          <circle class="hg-node" cx="500" cy="252" r="3" />
+          <circle class="hg-node--dim" cx="34" cy="192" r="2.4" />
+        </svg>
+      </div>
       <div class="container">
         <p class="hero__eyebrow">Team GoldenSun ☀️</p>
         <h1 class="hero__title">GoldenSunAI</h1>

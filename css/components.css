@@ -258,6 +258,103 @@ body[data-drawer-open="true"] {
   margin-top: var(--gs-space-8);
 }
 
+/* -- Hero globe motif -----------------------------------------------------
+   A stylized data-globe: dotted "landmass" cluster, latitude/longitude
+   wireframe, and a warm horizon glow — the same visual language as the
+   Team GoldenSun LinkedIn banners, rebuilt in inline SVG so it costs the
+   page nothing to load. Rotation is implied by animating the meridian
+   ellipses' rx (a true 2D projection of a sphere spinning on its axis),
+   not by spinning the whole graphic in the picture plane.
+   ------------------------------------------------------------------------*/
+
+.hero__globe {
+  position: absolute;
+  right: clamp(-60px, -4vw, -20px);
+  bottom: -8%;
+  width: min(48vw, 480px);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.hero__globe svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hg-silhouette {
+  fill: none;
+  stroke: var(--gs-border);
+  stroke-width: 1;
+}
+
+.hg-lat {
+  fill: none;
+  stroke: var(--gs-gold-600);
+  stroke-width: 0.75;
+  opacity: 0.3;
+}
+
+.hg-meridian {
+  fill: none;
+  stroke: var(--gs-gold-500);
+  stroke-width: 1;
+  animation: hg-sweep 18s linear infinite;
+}
+
+.hg-meridian--b {
+  animation-delay: -9s;
+}
+
+@keyframes hg-sweep {
+  0%,
+  100% {
+    rx: 152px;
+    opacity: 0.55;
+  }
+  50% {
+    rx: 3px;
+    opacity: 0.15;
+  }
+}
+
+.hg-node {
+  fill: var(--gs-gold-500);
+}
+
+.hg-node--dim {
+  fill: var(--gs-gold-700);
+  opacity: 0.6;
+}
+
+.hg-glow {
+  animation: hg-glow-pulse 7s ease-in-out infinite;
+}
+
+@keyframes hg-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.hg-arc {
+  fill: none;
+  stroke: var(--gs-cobalt-400);
+  stroke-width: 1;
+  opacity: 0.35;
+  stroke-dasharray: 3 5;
+}
+
+@media (max-width: 767px) {
+  .hero__globe {
+    display: none;
+  }
+}
+
 /* -- Section headings ---------------------------------------------------*/
 
 .section-head {
