@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/
+.idea/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Dependencies / future tooling
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.swp
+*~
