@@ -338,8 +338,26 @@ body[data-drawer-open="true"] {
 .card__actions {
   margin-top: var(--gs-space-5);
   display: flex;
+  align-items: center;
   gap: var(--gs-space-3);
   flex-wrap: wrap;
+}
+
+.preview-note {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--gs-space-1);
+  font-family: var(--gs-font-mono);
+  font-size: var(--gs-fs-xs);
+  color: var(--gs-text-muted);
+}
+
+.preview-note::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gs-text-muted);
 }
 
 /* -- Status badges --------------------------------------------------------*/
