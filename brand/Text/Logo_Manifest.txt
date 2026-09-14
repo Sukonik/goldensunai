@@ -1,0 +1,73 @@
+GoldenSunAI Brand Kit — Logo Manifest
+
+GoldenSunAI_Logo_BlackWhite_Original.png
+  Original file: GoldenSunAI logo 1.png
+  Dimensions: 1254x1254
+  Mode: RGBA
+  SHA-256 prefix: bce5b491c025
+
+GoldenSunAI_Logo_BlackWhite_RetroSunburst.png
+  Original file: bold_black_sunburst_compass_emblem.png
+  Dimensions: 1254x1254
+  Mode: RGB
+  SHA-256 prefix: 699a60fc5f10
+
+GoldenSunAI_Logo_Gold_2D.png
+  Original file: golden_g_sun_compass_emblem.png
+  Dimensions: 1254x1254
+  Mode: RGB
+  SHA-256 prefix: 0a3c3d2b97bf
+
+GoldenSunAI_Logo_PixelForestWater_Clear.png
+  Original file: golden_sun_emblem_over_pixel_map.png
+  Dimensions: 1254x1254
+  Mode: RGB
+  SHA-256 prefix: aebb4d188c1c
+
+GoldenSunAI_Logo_PixelForestWater_Alt.png
+  Original file: pixel_sun_compass_overworld_map.png
+  Dimensions: 1254x1254
+  Mode: RGB
+  SHA-256 prefix: 72cb4b5275d9
+
+GoldenSunAI_Logo_PixelForestWater_Square.png
+  Original file: imagegen.png
+  Dimensions: 1254x1254
+  Mode: RGB
+  SHA-256 prefix: 63fae5331b0f
+
+GoldenSunAI_Logo_GlowingForest.png
+  Original file: radiant_golden_sun_emblem_in_enchanted_forest.png
+  Dimensions: 1254x1254
+  Mode: RGB
+  SHA-256 prefix: e1d2efacf1e0
+
+GoldenSunAI_Logo_Ruins_2D.png
+  Original file: sun_emblem_among_ancient_ruins.png
+  Dimensions: 1254x1254
+  Mode: RGB
+  SHA-256 prefix: b4f36b5c9a22
+
+GoldenSunAI_Selected_Gold_2D.png
+  Original file: 110dce2b-12b3-4f7d-8df8-555da9058d6a.png
+  Dimensions: 1254x1254
+  Mode: RGBA
+  SHA-256 prefix: c059501ef5ae
+
+GoldenSunAI_Selected_BlackWhite.png
+  Original file: c97cd6b3-abcc-44bb-b987-33752150d1ee.png
+  Dimensions: 1254x1254
+  Mode: RGBA
+  SHA-256 prefix: bce5b491c025
+
+GoldenSunAI_Selected_PixelScene.png
+  Original file: afec50d1-7412-46d3-91fc-63d081b22fff.png
+  Dimensions: 1254x1254
+  Mode: RGBA
+  SHA-256 prefix: 8ec96b69125e
+
+GoldenSunAI_Selected_GlowingScene.png
+  Original file: a3ab0595-2b12-456d-b3f2-96f32366f340.png
+  Dimensions: 1254x1254
+  Mode: RGBA
+  SHA-256 prefix: 9d1500cc9412
