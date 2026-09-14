@@ -4,6 +4,10 @@
 
 **Built by Team GoldenSun.**
 
+### 🌐 [Open GoldenSunAI Version 1](https://sukonik.github.io/goldensunai/)
+
+**Status:** Live on GitHub Pages · HTTPS enabled
+
 GoldenSunAI is an AI-native product studio building focused software across artificial intelligence, environmental intelligence, legal technology, personal computing, investing, planning, and digital experiences.
 
 We combine human product leadership with specialized AI agents across product strategy, design, research, engineering, testing, and iteration.
@@ -94,6 +98,8 @@ Atlas 1.3 — Garden City
 ## 🌐 GoldenSunAI Website
 
 This repository is the home of the GoldenSunAI company website and portfolio.
+
+**Live production site:** [https://sukonik.github.io/goldensunai/](https://sukonik.github.io/goldensunai/)
 
 The site is designed to feel like a product itself: fast, highly responsive, visually distinctive, and deliberately lightweight.
 
@@ -242,13 +248,15 @@ Development builds may expose a **dev-only publish strip** with:
 
 That control must never appear on the production website, and the publish action must never report success unless deployment actually succeeds.
 
-The production target is GitHub Pages:
+### Production
 
-```text
-https://sukonik.github.io/goldensunai/
-```
+☀️ **Live Site:** [https://sukonik.github.io/goldensunai/](https://sukonik.github.io/goldensunai/)
 
-Until GitHub Pages is enabled and the production workflow succeeds, that address should be treated as the deployment target rather than a confirmed live release.
+🚀 **Deployment:** GitHub Pages via GitHub Actions
+
+🔒 **HTTPS:** Enforced on the default `sukonik.github.io` domain
+
+The live site is now the production reference for Version 1. Future PRs should be validated against a test/preview build first, then published to the live site through the established GitHub Pages workflow.
 
 ---
 
