@@ -286,11 +286,16 @@ body[data-drawer-open="true"] {
 
 /* -- Hero globe motif -----------------------------------------------------
    A stylized data-globe: dotted "landmass" cluster, latitude/longitude
-   wireframe, and a warm horizon glow — the same visual language as the
-   Team GoldenSun LinkedIn banners, rebuilt in inline SVG so it costs the
-   page nothing to load. Rotation is implied by animating the meridian
-   ellipses' rx (a true 2D projection of a sphere spinning on its axis),
-   not by spinning the whole graphic in the picture plane.
+   wireframe, orbital arcs, and a warm horizon glow — the same visual
+   language as the Team GoldenSun LinkedIn banners, rebuilt in inline SVG
+   so it costs the page nothing to load. Rotation is implied by animating
+   the meridian ellipses' rx (a true 2D projection of a sphere spinning on
+   its axis), not by spinning the whole graphic in the picture plane.
+
+   Every color here comes from the --gs-globe-* variables in tokens.css,
+   never --gs-accent, --gs-gold-*, or --gs-cobalt-* directly, so the globe
+   re-themes with the rest of the page across all five gemstones without
+   any of these rules changing.
    ------------------------------------------------------------------------*/
 
 .hero__globe {
@@ -300,6 +305,19 @@ body[data-drawer-open="true"] {
   width: min(48vw, 480px);
   opacity: 0.9;
   pointer-events: none;
+  /* Fade the whole motif toward transparent past the sphere's own edge,
+     so it blends into the page background instead of ending on a hard
+     circular cutoff. */
+  mask-image: radial-gradient(
+    circle at 58% 54%,
+    rgba(0, 0, 0, 1) 64%,
+    rgba(0, 0, 0, 0) 96%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle at 58% 54%,
+    rgba(0, 0, 0, 1) 64%,
+    rgba(0, 0, 0, 0) 96%
+  );
 }
 
 .hero__globe svg {
@@ -314,16 +332,23 @@ body[data-drawer-open="true"] {
   stroke-width: 1;
 }
 
+.hg-atmosphere {
+  fill: none;
+  stroke: var(--gs-globe-primary);
+  stroke-width: 0.5;
+  opacity: 0.12;
+}
+
 .hg-lat {
   fill: none;
-  stroke: var(--gs-accent);
+  stroke: var(--gs-globe-secondary);
   stroke-width: 0.75;
   opacity: 0.3;
 }
 
 .hg-meridian {
   fill: none;
-  stroke: var(--gs-accent-strong);
+  stroke: var(--gs-globe-primary);
   stroke-width: 1;
   animation: hg-sweep 18s linear infinite;
 }
@@ -345,24 +370,50 @@ body[data-drawer-open="true"] {
 }
 
 .hg-node {
-  fill: var(--gs-accent-strong);
+  fill: var(--gs-globe-primary);
 }
 
 .hg-node--dim {
-  fill: var(--gs-accent);
+  fill: var(--gs-globe-dim);
   opacity: 0.6;
 }
 
+/* A couple of the landmass points get a slow, occasional pulse instead of
+   sitting perfectly still — a quiet "signal detected" flicker, staggered
+   so the two never pulse in sync. */
+.hg-node--pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: hg-node-pulse 6s ease-in-out infinite;
+}
+
+.hg-node--pulse-b {
+  animation-delay: -3.2s;
+}
+
+@keyframes hg-node-pulse {
+  0%,
+  82%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  91% {
+    opacity: 1;
+    transform: scale(1.7);
+  }
+}
+
 .hg-stop-1 {
-  stop-color: var(--gs-accent-strong);
+  stop-color: var(--gs-globe-glow);
 }
 
 .hg-stop-2 {
-  stop-color: var(--gs-accent);
+  stop-color: var(--gs-globe-secondary);
 }
 
 .hg-stop-3 {
-  stop-color: var(--gs-accent);
+  stop-color: var(--gs-globe-secondary);
   stop-opacity: 0;
 }
 
@@ -382,14 +433,103 @@ body[data-drawer-open="true"] {
 
 .hg-arc {
   fill: none;
-  stroke: var(--gs-cobalt-400);
+  stroke: var(--gs-globe-arc);
   stroke-width: 1;
   opacity: 0.35;
   stroke-dasharray: 3 5;
 }
 
+/* A single point of light making a slow pass along one orbital arc — the
+   globe's "live signal" cue. offset-path is a progressive enhancement: if
+   a browser doesn't support CSS motion paths the dot simply never moves,
+   which is an acceptable no-op fallback for a decorative element. */
+.hg-signal {
+  fill: var(--gs-globe-arc);
+  offset-path: path("M 30 190 Q 280 100 500 250");
+  offset-rotate: 0deg;
+  animation: hg-signal-travel 9s ease-in-out infinite;
+}
+
+@keyframes hg-signal-travel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.9;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+.hg-label {
+  fill: var(--gs-globe-secondary);
+  font-family: var(--gs-font-mono);
+  font-size: 11px;
+  letter-spacing: 3px;
+  opacity: 0.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hg-meridian,
+  .hg-glow,
+  .hg-node--pulse,
+  .hg-signal {
+    animation: none;
+  }
+
+  /* Freeze each on a clean resting frame rather than whatever the first
+     keyframe happens to draw — the 0%/100% keyframe sits almost exactly on
+     the clip circle's edge and all but disappears, so rest at a mid-sweep
+     value instead, comfortably inside the clip and clearly a "meridian". */
+  .hg-meridian {
+    rx: 90px;
+    opacity: 0.5;
+  }
+
+  .hg-glow {
+    opacity: 0.85;
+  }
+
+  .hg-signal {
+    opacity: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Tablet: a smaller, quieter globe rather than the full desktop motif. */
+  .hero__globe {
+    width: min(38vw, 340px);
+    opacity: 0.75;
+  }
+
+  .hg-label {
+    display: none;
+  }
+}
+
 @media (max-width: 767px) {
   .hero__globe {
+    /* Not hidden outright — a faint, cropped sliver in the corner (the
+       hero section clips overflow, so most of the sphere falls off-canvas
+       and only a quarter-globe glow peeks through behind the copy). If
+       this ever reads as competing with the hero text rather than sitting
+       quietly behind it, go back to display: none — typography wins. */
+    width: min(85vw, 380px);
+    right: -30%;
+    bottom: -34%;
+    opacity: 0.16;
+  }
+
+  .hg-arc,
+  .hg-signal,
+  .hg-label,
+  .hg-node--pulse {
     display: none;
   }
 }

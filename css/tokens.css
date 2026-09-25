@@ -96,24 +96,44 @@
 [data-theme="gold"] {
   --gs-accent: #d4a017;
   --gs-accent-strong: #e8b74b;
+  --gs-globe-arc: #6b84ff;
 }
 
 [data-theme="ruby"] {
   --gs-accent: #c83f52;
   --gs-accent-strong: #f05a6b;
+  --gs-globe-arc: #3ad6c4;
 }
 
 [data-theme="sapphire"] {
   --gs-accent: #3a5cff;
   --gs-accent-strong: #6b84ff;
+  --gs-globe-arc: #f2c14e;
 }
 
 [data-theme="emerald"] {
   --gs-accent: #1f9d68;
   --gs-accent-strong: #4ac58c;
+  --gs-globe-arc: #e07ad1;
 }
 
 [data-theme="amethyst"] {
   --gs-accent: #8f55d6;
   --gs-accent-strong: #b278f1;
+  --gs-globe-arc: #58e0c9;
+}
+
+/* -- Hero globe (semantic) -------------------------------------------------
+   The globe's own palette, kept one level removed from --gs-accent so a
+   future globe restyle never has to touch the theme system itself.
+   Primary/secondary/dim/glow simply track the active gemstone's accent
+   pair; --gs-globe-arc is the one hue that doesn't — every theme gets its
+   own "network" contrast color for the orbital arcs and signal point
+   (set per [data-theme] above), so the globe never reads as monochrome.
+   ------------------------------------------------------------------------*/
+:root {
+  --gs-globe-primary: var(--gs-accent-strong);
+  --gs-globe-secondary: var(--gs-accent);
+  --gs-globe-dim: var(--gs-accent);
+  --gs-globe-glow: var(--gs-accent-strong);
 }
