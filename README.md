@@ -59,16 +59,30 @@ Nathan is the human product lead. Ari, Cole, and Gal are specialized AI collabor
 
 GoldenSunAI is building a portfolio of connected products and experiments.
 
+### Featured / Active Experiments
+
+The current public priorities — what Team GoldenSun is actively building right now.
+
 | Project | Status | Focus |
 | --- | --- | --- |
+| 🍝 **Pasta** | **Active** | Dating and connection-building, built around intentionality rather than endless swiping |
+| 🗡️ **WindSwordAI** | **Active** | Document intelligence, built for everyday consumers before enterprise workflows |
+| 🛡️ **LinkGuard** | **Active** | Email link guard — checks links for safety before you click |
 | ☁️ **ClearSky** | **Beta / Live** | Weather, wind, tides, air quality, UV, rain, and environmental intelligence |
+
+### Research / Internal / Future
+
+The broader GoldenSunAI lab — concepts, applied R&D, and future systems.
+
+| Project | Status | Focus |
+| --- | --- | --- |
 | 🌎 **Ari** | **Concept / Development** | AI operating platform connecting intelligence, planning, work, home, life, and communications |
 | 🧭 **Ari Planner** | **Concept / Development** | Personalized day and evening planning, local discovery, people, places, and possibilities |
 | 🧠 **Capsule AI** | **Concept** | Personalization, context, archetypes, preferences, and recommendation intelligence |
 | 👁️ **Q-Lens** | **Concept** | Contextual discovery and recommendation layer with a path toward visual and AR experiences |
 | 🗺️ **Golden Sun Atlas** | **Coming Soon** | Portable local-AI computing platform spanning Atlas Desktop and Atlas OS |
-| 🏰 **GoldCastle** | **Coming Soon** | Investing, asset tracking, wealth-building, and financial discovery |
-| 🏞️ **BlackBowAI** | **Beta / Active Development** | Local-first legal document classification, migration, search, review, reporting, and AI tooling |
+| 🏰 **GoldCastle** | **Coming Soon** | Upcoming GoldenSunAI project · details to be announced |
+| 🏞️ **BlackBowAI** | **Internal R&D / Active** | Local-first legal document classification, migration, search, review, reporting, and AI tooling — applied internal project, not a current consumer product |
 
 ### 🗺️ Golden Sun Atlas
 
@@ -187,6 +201,9 @@ goldensunai/
 │
 ├── projects/
 │   ├── clearsky.html
+│   ├── pasta.html
+│   ├── windswordai.html
+│   ├── linkguard.html
 │   ├── ari-platform.html
 │   ├── ari.html
 │   ├── capsule-ai.html

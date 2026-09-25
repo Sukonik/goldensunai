@@ -642,11 +642,13 @@ body[data-drawer-open="true"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--gs-space-3);
 }
 
 .card__title {
   font-size: var(--gs-fs-lg);
+  min-width: 0;
 }
 
 .card__tagline {
