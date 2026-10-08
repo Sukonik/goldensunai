@@ -93,7 +93,26 @@
     }
   });
 
-  // -- Portfolio category filters (Work page) ------------------------------
+  // -- Back-to-Work link: preserve the filter across a project page --------
+  // A card's "Learn more" link is a plain anchor, so the only record of
+  // which filter was active is the Work page's own URL — read it off the
+  // referrer and carry it onto the "← Back to Work" link, same-origin only.
+  var backLink = document.querySelector('.btn--ghost[href$="work.html"]');
+  if (backLink && document.referrer) {
+    try {
+      var refUrl = new URL(document.referrer);
+      var refCategory = refUrl.searchParams.get("category");
+      if (refUrl.origin === window.location.origin && refCategory) {
+        var backUrl = new URL(backLink.href, window.location.href);
+        backUrl.searchParams.set("category", refCategory);
+        backLink.href = backUrl.href;
+      }
+    } catch (e) {
+      /* malformed referrer URL — leave the back link as-is */
+    }
+  }
+
+  // -- Portfolio category filters ("Solar Index", Work page) ---------------
   // Cards are all visible in markup already — this only hides non-matching
   // ones, so a no-JS visitor (and the filter bar stays `hidden` until here
   // runs) always sees the full portfolio.
@@ -102,6 +121,7 @@
 
   if (filterBar && filterCards.length) {
     var chips = filterBar.querySelectorAll(".filter-chip");
+    var countEl = document.getElementById("filter-bar-count");
     var validFilters = Array.prototype.map.call(chips, function (chip) {
       return chip.dataset.filter;
     });
@@ -110,9 +130,19 @@
       chips.forEach(function (chip) {
         chip.setAttribute("aria-pressed", String(chip === chipToPress));
       });
+      var visible = 0;
       filterCards.forEach(function (card) {
-        card.hidden = filter !== "all" && card.dataset.category !== filter;
+        var match = filter === "all" || card.dataset.category === filter;
+        card.hidden = !match;
+        if (match) {
+          visible += 1;
+        }
       });
+      if (countEl) {
+        var label = chipToPress ? chipToPress.textContent.trim() : "All";
+        countEl.textContent =
+          filter === "all" ? visible + " shown" : visible + " shown in " + label;
+      }
     }
 
     function chipFor(filter) {
@@ -147,8 +177,6 @@
     if (validFilters.indexOf(initialFilter) === -1) {
       initialFilter = "all";
     }
-    if (initialFilter !== "all") {
-      applyFilter(initialFilter, chipFor(initialFilter));
-    }
+    applyFilter(initialFilter, chipFor(initialFilter));
   }
 })();
