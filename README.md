@@ -59,16 +59,54 @@ Nathan is the human product lead. Ari, Cole, and Gal are specialized AI collabor
 
 GoldenSunAI is building a portfolio of connected products and experiments.
 
+The portfolio is organized into five categories, filterable on the [Work](./work.html) page. The Fighting Four — Pasta, WindSwordAI, LinkGuard, and ClearSky — remain our strategic priority group within Applications & Software.
+
+### 01 — Applications & Software
+
 | Project | Status | Focus |
 | --- | --- | --- |
+| 🍝 **Pasta** | **Active** | Dating and connection-building, built around intentionality rather than endless swiping |
+| 🗡️ **WindSwordAI** | **Active** | Document intelligence, built for everyday consumers before enterprise workflows |
+| 🛡️ **LinkGuard** | **Active** | Email link guard — checks links for safety before you click |
 | ☁️ **ClearSky** | **Beta / Live** | Weather, wind, tides, air quality, UV, rain, and environmental intelligence |
-| 🌎 **Ari** | **Concept / Development** | AI operating platform connecting intelligence, planning, work, home, life, and communications |
+| 🌎 **ARI** | **Concept / Development** | AI operating platform connecting intelligence, planning, work, home, life, and communications |
+| 🧪 **Simcha AI** | **Concept** | Upcoming GoldenSunAI project · details to be announced |
+| 🧪 **KikoMix** | **Concept** | Upcoming GoldenSunAI project · details to be announced |
 | 🧭 **Ari Planner** | **Concept / Development** | Personalized day and evening planning, local discovery, people, places, and possibilities |
 | 🧠 **Capsule AI** | **Concept** | Personalization, context, archetypes, preferences, and recommendation intelligence |
 | 👁️ **Q-Lens** | **Concept** | Contextual discovery and recommendation layer with a path toward visual and AR experiences |
+
+### 02 — Creative Studios & Brands
+
+| Project | Status | Focus |
+| --- | --- | --- |
+| ⚖️ **GoldenSunLaw** | **Concept** | Fictional law-firm brand &amp; design showcase — not an operating law firm |
+| 🧪 **UUUB Cocoa House** | **Concept** | Upcoming GoldenSunAI brand · details to be announced |
+| 🧪 **RubyPlotLab** | **Concept** | Upcoming GoldenSunAI brand · details to be announced |
+
+### 03 — Finance & Investment Technology
+
+| Project | Status | Focus |
+| --- | --- | --- |
+| 🧪 **Payout Lab** | **Concept** | Upcoming GoldenSunAI project · details to be announced |
+| 🧪 **GoldenSunCapital** | **Concept** | Upcoming GoldenSunAI project · details to be announced |
+| 🧪 **GoldenSunFlow** | **Concept** | Upcoming GoldenSunAI project · details to be announced |
+
+### 04 — Internal Systems & Infrastructure
+
+| Project | Status | Focus |
+| --- | --- | --- |
+| ☀️ **GoldenSunAI** | **Internal** | The brand, design system, and site platform itself |
 | 🗺️ **Golden Sun Atlas** | **Coming Soon** | Portable local-AI computing platform spanning Atlas Desktop and Atlas OS |
-| 🏰 **GoldCastle** | **Coming Soon** | Investing, asset tracking, wealth-building, and financial discovery |
-| 🏞️ **BlackBowAI** | **Beta / Active Development** | Local-first legal document classification, migration, search, review, reporting, and AI tooling |
+| 🏰 **GoldCastle** | **Coming Soon** | Upcoming GoldenSunAI project · details to be announced |
+| 🧪 **GoldenSunDash** | **Internal** | Upcoming GoldenSunAI system · details to be announced |
+| 🧪 **GoldenSunFoundation** | **Internal** | Upcoming GoldenSunAI system · details to be announced |
+
+### 05 — Applied R&D & Legal Technology
+
+| Project | Status | Focus |
+| --- | --- | --- |
+| 🏞️ **BlackBowAI** | **Internal R&D / Active** | Local-first legal document classification, migration, search, review, reporting, and AI tooling — applied internal project, not a current consumer product |
 
 ### 🗺️ Golden Sun Atlas
 
@@ -187,13 +225,17 @@ goldensunai/
 │
 ├── projects/
 │   ├── clearsky.html
+│   ├── pasta.html
+│   ├── windswordai.html
+│   ├── linkguard.html
 │   ├── ari-platform.html
 │   ├── ari.html
 │   ├── capsule-ai.html
 │   ├── q-lens.html
 │   ├── atlas.html
 │   ├── goldcastle.html
-│   └── blackbowai.html
+│   ├── blackbowai.html
+│   └── goldensunlaw.html
 │
 ├── .github/
 │   └── workflows/
@@ -226,6 +268,10 @@ http://localhost:8000
 ```
 
 ---
+
+## 🔗 Portfolio Link Policy
+
+Public-facing Work page cards never link to GitHub repositories, READMEs, pull requests, issues, or Actions runs — GitHub Actions is a deployment mechanism, not a visitor destination. A card gets a **Visit Website** button only when a real, verified live site exists; otherwise it gets an internal GoldenSunAI project page, or no external link at all. GitHub references belong in developer handoffs, not public cards.
 
 ## 🧪 Preview + Publish Protocol
 

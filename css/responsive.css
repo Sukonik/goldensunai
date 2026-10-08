@@ -17,7 +17,7 @@
 /* -- Small tablets and up ------------------------------------------------*/
 @media (min-width: 640px) {
   .card-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .step-row {
@@ -36,7 +36,7 @@
   }
 
   .card-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .split {
@@ -58,6 +58,6 @@
 /* -- Large desktop ----------------------------------------------------------*/
 @media (min-width: 1200px) {
   .card-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

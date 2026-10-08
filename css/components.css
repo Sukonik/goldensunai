@@ -615,11 +615,57 @@ body[data-drawer-open="true"] {
   filter: drop-shadow(0 0 8px rgba(232, 183, 75, 0.35));
 }
 
+/* -- Portfolio category filters --------------------------------------------
+   A plain button group — no custom listbox/menu semantics needed since
+   there's no multi-select or nested structure, just a flat set of
+   mutually-exclusive toggles. Hidden by default in markup; js/main.js
+   reveals it once JS has actually run, so a no-JS visitor never sees an
+   inert filter and simply gets every card (progressive enhancement).
+   ------------------------------------------------------------------------*/
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gs-space-2);
+  margin-bottom: var(--gs-space-6);
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: var(--gs-space-2) var(--gs-space-4);
+  border-radius: 999px;
+  border: 1px solid var(--gs-border);
+  color: var(--gs-text-secondary);
+  font-size: var(--gs-fs-sm);
+  font-weight: 600;
+  transition: border-color var(--gs-duration-fast) var(--gs-ease),
+    color var(--gs-duration-fast) var(--gs-ease),
+    background var(--gs-duration-fast) var(--gs-ease);
+}
+
+.filter-chip:hover {
+  border-color: var(--gs-accent);
+  color: var(--gs-text-primary);
+}
+
+.filter-chip[aria-pressed="true"] {
+  background: var(--gs-accent);
+  border-color: var(--gs-accent);
+  color: var(--gs-text-on-gold);
+}
+
 /* -- Cards ----------------------------------------------------------------*/
 
 .card-grid {
   display: grid;
-  grid-template-columns: 1fr;
+  /* minmax(0, 1fr), not bare 1fr (which implies minmax(auto, 1fr)) — a bare
+     1fr lets one card's unbreakable content (a long no-space project name,
+     a wide badge) inflate every card sharing that track past the viewport.
+     Clamping the minimum to 0 forces oversized content to wrap/shrink
+     inside the track instead of growing it. */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--gs-space-5);
 }
 
@@ -642,11 +688,14 @@ body[data-drawer-open="true"] {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: var(--gs-space-3);
 }
 
 .card__title {
   font-size: var(--gs-fs-lg);
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .card__tagline {
