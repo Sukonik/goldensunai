@@ -14,7 +14,7 @@
   <title>Work — GoldenSunAI</title>
   <meta
     name="description"
-    content="GoldenSunAI's portfolio across five categories — Applications & Software, Creative Studios & Brands, Finance & Investment Technology, Internal Systems & Infrastructure, and Applied R&D & Legal Technology — including the Fighting Four: Pasta, WindSwordAI, LinkGuard, and ClearSky."
+    content="GoldenSunAI's portfolio, browsable A–Z or filtered across five categories — Applications & Software, Creative Studios & Brands, Finance & Investment Technology, Internal Systems & Infrastructure, and Applied R&D & Legal Technology — including the Fighting Four: Pasta, WindSwordAI, LinkGuard, and ClearSky."
   />
   <link rel="icon" href="assets/icons/favicon.png" type="image/png" />
   <link rel="stylesheet" href="css/tokens.css" />
@@ -99,10 +99,9 @@
           <p class="page-kicker">Portfolio</p>
           <h1 class="page-title">Work</h1>
           <p class="page-lede">
-            Focused software, brands, and systems, built and shipped by
-            Team GoldenSun — organized across five categories. Pasta,
-            WindSwordAI, LinkGuard, and ClearSky remain our strategic
-            priority group today.
+            Many disciplines. One studio. Browse A&ndash;Z or filter by
+            category &mdash; Pasta, WindSwordAI, LinkGuard, and ClearSky
+            remain our strategic priority group today.
           </p>
         </div>
 
@@ -118,58 +117,71 @@
           </div>
         </div>
 
-        <div class="card-grid">
-          <!-- 01 — Applications & Software -->
-          <article class="card card--featured" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">🍝 Pasta</h2>
-              <span class="badge">ACTIVE</span>
-            </div>
-            <p class="card__tagline">Dating &amp; connection, built differently</p>
+        <!--
+          Cards are listed A–Z by display name (ignoring the leading emoji)
+          across the whole grid, not grouped by category in the markup —
+          that single order is what makes both the "All" view (global A–Z)
+          and every filtered category view (still A–Z, since filtering only
+          hides non-matching cards and never reorders) correct at once, with
+          no JS required to sort anything. data-category is filtering-only.
+        -->
+        <div class="card-grid work-grid">
+          <article class="card" data-category="software">
+            <h2 class="card__title">🌎 ARI</h2>
+            <p class="card__status">CONCEPT</p>
+            <p class="card__tagline">The AI operating platform</p>
             <p class="card__desc">
-              A more intentional way to meet people and build real
-              connection — not another endless swipe feed.
+              One place for AI, work, home, and everyday life — more
+              details coming soon.
             </p>
             <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/pasta.html">Learn more →</a>
+              <a class="btn btn--secondary" href="projects/ari-platform.html">Learn more →</a>
             </div>
           </article>
 
-          <article class="card card--featured" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">🗡️ WindSwordAI</h2>
-              <span class="badge">ACTIVE</span>
-            </div>
-            <p class="card__tagline">Document intelligence, consumers first</p>
+          <article class="card" data-category="software">
+            <h2 class="card__title">🧭 Ari Planner</h2>
+            <p class="card__status">CONCEPT</p>
+            <p class="card__tagline">Personal planning &amp; local discovery</p>
             <p class="card__desc">
-              Read, summarize, and act on your own documents — built for
-              everyday people before enterprise workflows.
+              Built around interests, environment, weather, time, and
+              possibility.
             </p>
             <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/windswordai.html">Learn more →</a>
+              <a class="btn btn--secondary" href="projects/ari.html">Learn more →</a>
             </div>
           </article>
 
-          <article class="card card--featured" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">🛡️ LinkGuard</h2>
-              <span class="badge">ACTIVE</span>
-            </div>
-            <p class="card__tagline">Email link guard</p>
+          <article class="card" data-category="rd">
+            <h2 class="card__title">🏞️ BlackBowAI</h2>
+            <p class="card__status">INTERNAL</p>
+            <p class="card__tagline">Local-first legal document technology</p>
             <p class="card__desc">
-              Know what's behind a link before you click it — a small,
-              focused layer of protection for your inbox.
+              Our applied legal-tech research family — classification,
+              review, and search built for real legal workflows. Internal
+              and applied, not a current consumer product.
             </p>
             <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/linkguard.html">Learn more →</a>
+              <a class="btn btn--secondary" href="projects/blackbowai.html">Learn more →</a>
             </div>
           </article>
 
-          <article class="card card--featured" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">☁️ ClearSky</h2>
-              <span class="badge">BETA</span>
+          <article class="card" data-category="software">
+            <h2 class="card__title">🧠 Capsule AI</h2>
+            <p class="card__status">CONCEPT</p>
+            <p class="card__tagline">Personalization &amp; recommendation intelligence</p>
+            <p class="card__desc">
+              Understanding user context, preferences, and recurring
+              patterns.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--secondary" href="projects/capsule-ai.html">Learn more →</a>
             </div>
+          </article>
+
+          <article class="card" data-category="software">
+            <h2 class="card__title">☁️ ClearSky</h2>
+            <p class="card__status">BETA</p>
             <p class="card__tagline">Weather &amp; environmental intelligence</p>
             <p class="card__desc">
               Weather, tides, wind, air quality and coastal conditions in
@@ -186,167 +198,21 @@
             </div>
           </article>
 
-          <article class="card" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">🌎 ARI</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">The AI operating platform</p>
-            <p class="card__desc">
-              One place for AI, work, home, and everyday life — more
-              details coming soon.
-            </p>
-            <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/ari-platform.html">Learn more →</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">🧪 Simcha AI</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Early-stage GoldenSunAI project</p>
-            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
-          </article>
-
-          <article class="card" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">🧪 KikoMix</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Early-stage GoldenSunAI project</p>
-            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
-          </article>
-
-          <article class="card" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">🧭 Ari Planner</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Personal planning &amp; local discovery</p>
-            <p class="card__desc">
-              Built around interests, environment, weather, time, and
-              possibility.
-            </p>
-            <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/ari.html">Learn more →</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">🧠 Capsule AI</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Personalization &amp; recommendation intelligence</p>
-            <p class="card__desc">
-              Understanding user context, preferences, and recurring
-              patterns.
-            </p>
-            <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/capsule-ai.html">Learn more →</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="software">
-            <div class="card__top">
-              <h2 class="card__title">👁️ Q-Lens</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Contextual discovery</p>
-            <p class="card__desc">
-              Connecting what a person sees, where they are, and what's
-              next.
-            </p>
-            <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/q-lens.html">Learn more →</a>
-            </div>
-          </article>
-
-          <!-- 02 — Creative Studios & Brands -->
-          <article class="card" data-category="creative">
-            <div class="card__top">
-              <h2 class="card__title">⚖️ GoldenSunLaw</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Fictional law-firm brand &amp; design showcase</p>
-            <p class="card__desc">
-              A design demonstration built to show GoldenSunAI's creative
-              and brand work — not an operating law firm.
-            </p>
-            <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/goldensunlaw.html">Learn more →</a>
-            </div>
-          </article>
-
-          <article class="card" data-category="creative">
-            <div class="card__top">
-              <h2 class="card__title">🧪 UUUB Cocoa House</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Early-stage GoldenSunAI brand</p>
-            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
-          </article>
-
-          <article class="card" data-category="creative">
-            <div class="card__top">
-              <h2 class="card__title">🧪 RubyPlotLab</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Early-stage GoldenSunAI brand</p>
-            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
-          </article>
-
-          <!-- 03 — Finance & Investment Technology -->
-          <article class="card" data-category="finance">
-            <div class="card__top">
-              <h2 class="card__title">🧪 Payout Lab</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Early-stage GoldenSunAI project</p>
-            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
-          </article>
-
-          <article class="card" data-category="finance">
-            <div class="card__top">
-              <h2 class="card__title">🧪 GoldenSunCapital</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Early-stage GoldenSunAI project</p>
-            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
-          </article>
-
-          <article class="card" data-category="finance">
-            <div class="card__top">
-              <h2 class="card__title">🧪 GoldenSunFlow</h2>
-              <span class="badge">CONCEPT</span>
-            </div>
-            <p class="card__tagline">Early-stage GoldenSunAI project</p>
-            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
-          </article>
-
-          <!-- 04 — Internal Systems & Infrastructure -->
           <article class="card" data-category="internal">
-            <div class="card__top">
-              <h2 class="card__title">☀️ GoldenSunAI</h2>
-              <span class="badge">INTERNAL</span>
-            </div>
-            <p class="card__tagline">The brand &amp; site platform you're on now</p>
+            <h2 class="card__title">🏰 GoldCastle</h2>
+            <p class="card__status">SOON</p>
+            <p class="card__tagline">Upcoming GoldenSunAI project</p>
             <p class="card__desc">
-              Design system, content, and portfolio infrastructure for the
-              whole GoldenSunAI studio.
+              Details to be announced.
             </p>
             <div class="card__actions">
-              <a class="btn btn--secondary" href="about.html">Learn more →</a>
+              <a class="btn btn--secondary" href="projects/goldcastle.html">Learn more →</a>
             </div>
           </article>
 
           <article class="card" data-category="internal">
-            <div class="card__top">
-              <h2 class="card__title">🗺️ Golden Sun Atlas</h2>
-              <span class="badge">SOON</span>
-            </div>
+            <h2 class="card__title">🗺️ Golden Sun Atlas</h2>
+            <p class="card__status">SOON</p>
             <p class="card__tagline">Portable AI computing platform</p>
             <p class="card__desc">
               Local models, agents, tools, and memory — orchestrated
@@ -358,51 +224,182 @@
           </article>
 
           <article class="card" data-category="internal">
-            <div class="card__top">
-              <h2 class="card__title">🏰 GoldCastle</h2>
-              <span class="badge">SOON</span>
-            </div>
-            <p class="card__tagline">Upcoming GoldenSunAI project</p>
+            <h2 class="card__title">☀️ GoldenSunAI</h2>
+            <p class="card__status">INTERNAL</p>
+            <p class="card__tagline">The brand &amp; site platform you're on now</p>
             <p class="card__desc">
-              Details to be announced.
+              Design system, content, and portfolio infrastructure for the
+              whole GoldenSunAI studio.
             </p>
             <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/goldcastle.html">Learn more →</a>
+              <a class="btn btn--secondary" href="about.html">Learn more →</a>
             </div>
           </article>
 
-          <article class="card" data-category="internal">
-            <div class="card__top">
-              <h2 class="card__title">🧪 GoldenSunDash</h2>
-              <span class="badge">INTERNAL</span>
-            </div>
-            <p class="card__tagline">Early-stage GoldenSunAI system</p>
+          <article class="card" data-category="finance">
+            <h2 class="card__title">🧪 GoldenSunCapital</h2>
+            <p class="card__status">CONCEPT</p>
+            <p class="card__tagline">Early-stage GoldenSunAI project</p>
             <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
           </article>
 
           <article class="card" data-category="internal">
-            <div class="card__top">
-              <h2 class="card__title">🧪 GoldenSunFoundation</h2>
-              <span class="badge">INTERNAL</span>
-            </div>
+            <h2 class="card__title">🧪 GoldenSunDash</h2>
+            <p class="card__status">INTERNAL</p>
             <p class="card__tagline">Early-stage GoldenSunAI system</p>
             <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
           </article>
 
-          <!-- 05 — Applied R&D & Legal Technology -->
-          <article class="card" data-category="rd">
-            <div class="card__top">
-              <h2 class="card__title">🏞️ BlackBowAI</h2>
-              <span class="badge">INTERNAL</span>
-            </div>
-            <p class="card__tagline">Local-first legal document technology</p>
+          <article class="card" data-category="finance">
+            <h2 class="card__title">🧪 GoldenSunFlow</h2>
+            <p class="card__status">CONCEPT</p>
+            <p class="card__tagline">Early-stage GoldenSunAI project</p>
+            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
+          </article>
+
+          <article class="card" data-category="internal">
+            <h2 class="card__title">🧪 GoldenSunFoundation</h2>
+            <p class="card__status">INTERNAL</p>
+            <p class="card__tagline">Early-stage GoldenSunAI system</p>
+            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
+          </article>
+
+          <article class="card" data-category="creative">
+            <h2 class="card__title">⚖️ GoldenSunLaw</h2>
+            <p class="card__status">DESIGN DEMO</p>
+            <p class="card__tagline">Fictional law-firm brand &amp; design showcase</p>
             <p class="card__desc">
-              Our applied legal-tech research family — classification,
-              review, and search built for real legal workflows. Internal
-              and applied, not a current consumer product.
+              A design demonstration built to show GoldenSunAI's creative
+              and brand work — not an operating law firm.
             </p>
             <div class="card__actions">
-              <a class="btn btn--secondary" href="projects/blackbowai.html">Learn more →</a>
+              <a
+                class="btn btn--primary"
+                href="https://sukonik.github.io/GoldenSunLaw/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit Website ↗</a
+              >
+            </div>
+          </article>
+
+          <article class="card" data-category="software">
+            <h2 class="card__title">🧪 KikoMix</h2>
+            <p class="card__status">WEB MVP</p>
+            <p class="card__tagline">Early-stage GoldenSunAI project</p>
+            <p class="card__desc">Not all providers are integrated yet.</p>
+            <div class="card__actions">
+              <a
+                class="btn btn--primary"
+                href="https://sukonik.github.io/kikomix/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit Website ↗</a
+              >
+            </div>
+          </article>
+
+          <article class="card" data-category="software">
+            <h2 class="card__title">🛡️ LinkGuard</h2>
+            <p class="card__status">ACTIVE</p>
+            <p class="card__tagline">Email link guard</p>
+            <p class="card__desc">
+              Know what's behind a link before you click it — a small,
+              focused layer of protection for your inbox.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--secondary" href="projects/linkguard.html">Learn more →</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="software">
+            <h2 class="card__title">🍝 Pasta</h2>
+            <p class="card__status">ACTIVE</p>
+            <p class="card__tagline">Dating &amp; connection, built differently</p>
+            <p class="card__desc">
+              A more intentional way to meet people and build real
+              connection — not another endless swipe feed.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--secondary" href="projects/pasta.html">Learn more →</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="finance">
+            <h2 class="card__title">🧪 Payout Lab</h2>
+            <p class="card__status">PRE-LAUNCH</p>
+            <p class="card__tagline">Early-stage GoldenSunAI project</p>
+            <p class="card__desc">Data limitations remain explicit while this stays pre-launch.</p>
+            <div class="card__actions">
+              <a
+                class="btn btn--primary"
+                href="https://sukonik.github.io/payout-lab/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit Website ↗</a
+              >
+            </div>
+          </article>
+
+          <article class="card" data-category="software">
+            <h2 class="card__title">👁️ Q-Lens</h2>
+            <p class="card__status">CONCEPT</p>
+            <p class="card__tagline">Contextual discovery</p>
+            <p class="card__desc">
+              Connecting what a person sees, where they are, and what's
+              next.
+            </p>
+            <div class="card__actions">
+              <a class="btn btn--secondary" href="projects/q-lens.html">Learn more →</a>
+            </div>
+          </article>
+
+          <article class="card" data-category="creative">
+            <h2 class="card__title">🧪 RubyPlotLab</h2>
+            <p class="card__status">CONCEPT</p>
+            <p class="card__tagline">Early-stage GoldenSunAI brand</p>
+            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
+          </article>
+
+          <article class="card" data-category="software">
+            <h2 class="card__title">🧪 Simcha AI</h2>
+            <p class="card__status">CONCEPT</p>
+            <p class="card__tagline">Early-stage GoldenSunAI project</p>
+            <p class="card__desc">Upcoming GoldenSunAI project · details to be announced.</p>
+          </article>
+
+          <article class="card" data-category="creative">
+            <h2 class="card__title">🧪 UUUB Cocoa House</h2>
+            <p class="card__status">CONCEPT SITE</p>
+            <p class="card__tagline">Early-stage GoldenSunAI brand</p>
+            <p class="card__desc">No real shop or location claims yet.</p>
+            <div class="card__actions">
+              <a
+                class="btn btn--primary"
+                href="https://sukonik.github.io/uuub/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit Website ↗</a
+              >
+            </div>
+          </article>
+
+          <article class="card" data-category="software">
+            <h2 class="card__title">🗡️ WindSwordAI</h2>
+            <p class="card__status">LIVE DEMO</p>
+            <p class="card__tagline">Document intelligence, consumers first</p>
+            <p class="card__desc">
+              Read, summarize, and act on your own documents — a
+              synthetic-data demo interface, not a production claim yet.
+            </p>
+            <div class="card__actions">
+              <a
+                class="btn btn--primary"
+                href="https://sukonik.github.io/windswordai/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Visit Website ↗</a
+              >
             </div>
           </article>
         </div>

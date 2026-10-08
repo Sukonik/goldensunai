@@ -61,3 +61,33 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* -- Work page grid — its own breakpoints (768/1024/1600), independent of
+   the shared .card-grid breakpoints above so index/about/mission/support
+   aren't affected: 320–767px one column, 768–1023px two, 1024px+ three,
+   1600px+ four. The extra .card-grid.work-grid specificity guarantees
+   these win over the generic .card-grid rules regardless of source order
+   — including this unconditional one, which holds Work to one column
+   through the 640–767px gap the generic 640px breakpoint would otherwise
+   claim first. */
+.card-grid.work-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 768px) {
+  .card-grid.work-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid.work-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1600px) {
+  .card-grid.work-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
