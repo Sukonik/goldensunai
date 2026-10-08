@@ -734,20 +734,9 @@ body[data-drawer-open="true"] {
   transform: translateY(-2px);
 }
 
-/* Editorial emphasis for the Fighting Four, desktop only — same cards,
-   same grid, just a touch more presence where there's room for it. Stays
-   uniform with the rest of the grid below 1024px (purpose-built mobile:
-   "keep the rest of the cards consistent and easy to scan"). */
-@media (min-width: 1024px) {
-  .card--featured .card__title {
-    font-size: var(--gs-fs-xl);
-  }
-
-  .card--featured {
-    border-color: color-mix(in srgb, var(--gs-accent) 50%, var(--gs-border));
-  }
-}
-
+/* .card__top is still used by index.html's small homepage preview grid
+   (title + corner badge, inline). The Work page grid below uses a plain
+   stacked hierarchy instead — see .card__status. */
 .card__top {
   display: flex;
   align-items: center;
@@ -758,8 +747,19 @@ body[data-drawer-open="true"] {
 
 .card__title {
   font-size: var(--gs-fs-lg);
-  min-width: 0;
   overflow-wrap: break-word;
+}
+
+/* A plain understated status line directly under the title — no pill, no
+   corner badge, no decorative container, per the Work page's card
+   hierarchy. Same small-caps-meta treatment as .project-meta dt. */
+.card__status {
+  margin-top: var(--gs-space-2);
+  color: var(--gs-text-muted);
+  font-family: var(--gs-font-mono);
+  font-size: var(--gs-fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 
 .card__tagline {
