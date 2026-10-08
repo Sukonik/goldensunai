@@ -190,6 +190,7 @@ body[data-drawer-open="true"] {
 .btn {
   display: inline-flex;
   align-items: center;
+  min-height: 44px;
   gap: var(--gs-space-2);
   padding: var(--gs-space-3) var(--gs-space-5);
   border-radius: var(--gs-radius-sm);
@@ -615,24 +616,46 @@ body[data-drawer-open="true"] {
   filter: drop-shadow(0 0 8px rgba(232, 183, 75, 0.35));
 }
 
-/* -- Portfolio category filters --------------------------------------------
+/* -- Portfolio category filters ("Solar Index") -----------------------------
    A plain button group — no custom listbox/menu semantics needed since
    there's no multi-select or nested structure, just a flat set of
    mutually-exclusive toggles. Hidden by default in markup; js/main.js
    reveals it once JS has actually run, so a no-JS visitor never sees an
    inert filter and simply gets every card (progressive enhancement).
+
+   Below 640px the rail scrolls horizontally instead of wrapping to a
+   second row (a wrapped row of pills reads as a block of UI; a single
+   scrollable row reads as a strip to flick through) — the edge fade is a
+   mask, not a visible element, so it never shows up in the overflow scan.
    ------------------------------------------------------------------------*/
 
 .filter-bar {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   gap: var(--gs-space-2);
-  margin-bottom: var(--gs-space-6);
+  margin-bottom: var(--gs-space-4);
+}
+
+.filter-bar__count {
+  width: 100%;
+  color: var(--gs-text-muted);
+  font-family: var(--gs-font-mono);
+  font-size: var(--gs-fs-xs);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--gs-space-4);
+}
+
+.filter-bar__rail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gs-space-2);
 }
 
 .filter-chip {
   display: inline-flex;
   align-items: center;
+  flex-shrink: 0;
   min-height: 44px;
   padding: var(--gs-space-2) var(--gs-space-4);
   border-radius: 999px;
@@ -656,6 +679,32 @@ body[data-drawer-open="true"] {
   color: var(--gs-text-on-gold);
 }
 
+@media (max-width: 639px) {
+  .filter-bar__rail {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 2px;
+    margin: 0 calc(var(--gs-space-5) * -1);
+    padding-inline: var(--gs-space-5);
+    mask-image: linear-gradient(
+      to right,
+      black calc(100% - 28px),
+      transparent 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      black calc(100% - 28px),
+      transparent 100%
+    );
+  }
+
+  .filter-bar__rail::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 /* -- Cards ----------------------------------------------------------------*/
 
 .card-grid {
@@ -675,13 +724,28 @@ body[data-drawer-open="true"] {
   border-radius: var(--gs-radius-lg);
   padding: var(--gs-space-6);
   box-shadow: var(--gs-shadow-card);
-  transition: border-color var(--gs-duration-normal) var(--gs-ease),
-    transform var(--gs-duration-normal) var(--gs-ease);
+  transition: border-color 180ms var(--gs-ease), transform 180ms var(--gs-ease),
+    box-shadow 180ms var(--gs-ease);
 }
 
 .card:hover {
   border-color: var(--gs-accent-strong);
+  box-shadow: var(--gs-shadow-card), 0 0 0 1px var(--gs-accent-strong) inset;
   transform: translateY(-2px);
+}
+
+/* Editorial emphasis for the Fighting Four, desktop only — same cards,
+   same grid, just a touch more presence where there's room for it. Stays
+   uniform with the rest of the grid below 1024px (purpose-built mobile:
+   "keep the rest of the cards consistent and easy to scan"). */
+@media (min-width: 1024px) {
+  .card--featured .card__title {
+    font-size: var(--gs-fs-xl);
+  }
+
+  .card--featured {
+    border-color: color-mix(in srgb, var(--gs-accent) 50%, var(--gs-border));
+  }
 }
 
 .card__top {

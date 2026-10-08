@@ -107,17 +107,20 @@
         </div>
 
         <div class="filter-bar" id="filter-bar" role="group" aria-label="Filter the portfolio by category" hidden>
-          <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All</button>
-          <button type="button" class="filter-chip" data-filter="software" aria-pressed="false">Software</button>
-          <button type="button" class="filter-chip" data-filter="creative" aria-pressed="false">Creative</button>
-          <button type="button" class="filter-chip" data-filter="finance" aria-pressed="false">Finance</button>
-          <button type="button" class="filter-chip" data-filter="internal" aria-pressed="false">Internal</button>
-          <button type="button" class="filter-chip" data-filter="rd" aria-pressed="false">R&amp;D</button>
+          <p class="filter-bar__count" id="filter-bar-count" aria-live="polite"></p>
+          <div class="filter-bar__rail">
+            <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-chip" data-filter="software" aria-pressed="false">Software</button>
+            <button type="button" class="filter-chip" data-filter="creative" aria-pressed="false">Creative</button>
+            <button type="button" class="filter-chip" data-filter="finance" aria-pressed="false">Finance</button>
+            <button type="button" class="filter-chip" data-filter="internal" aria-pressed="false">Internal</button>
+            <button type="button" class="filter-chip" data-filter="rd" aria-pressed="false">R&amp;D</button>
+          </div>
         </div>
 
         <div class="card-grid">
           <!-- 01 — Applications & Software -->
-          <article class="card" data-category="software">
+          <article class="card card--featured" data-category="software">
             <div class="card__top">
               <h2 class="card__title">🍝 Pasta</h2>
               <span class="badge">ACTIVE</span>
@@ -132,7 +135,7 @@
             </div>
           </article>
 
-          <article class="card" data-category="software">
+          <article class="card card--featured" data-category="software">
             <div class="card__top">
               <h2 class="card__title">🗡️ WindSwordAI</h2>
               <span class="badge">ACTIVE</span>
@@ -147,7 +150,7 @@
             </div>
           </article>
 
-          <article class="card" data-category="software">
+          <article class="card card--featured" data-category="software">
             <div class="card__top">
               <h2 class="card__title">🛡️ LinkGuard</h2>
               <span class="badge">ACTIVE</span>
@@ -162,7 +165,7 @@
             </div>
           </article>
 
-          <article class="card" data-category="software">
+          <article class="card card--featured" data-category="software">
             <div class="card__top">
               <h2 class="card__title">☁️ ClearSky</h2>
               <span class="badge">BETA</span>
