@@ -92,4 +92,63 @@
       closeDrawer();
     }
   });
+
+  // -- Portfolio category filters (Work page) ------------------------------
+  // Cards are all visible in markup already — this only hides non-matching
+  // ones, so a no-JS visitor (and the filter bar stays `hidden` until here
+  // runs) always sees the full portfolio.
+  var filterBar = document.getElementById("filter-bar");
+  var filterCards = document.querySelectorAll(".card-grid .card[data-category]");
+
+  if (filterBar && filterCards.length) {
+    var chips = filterBar.querySelectorAll(".filter-chip");
+    var validFilters = Array.prototype.map.call(chips, function (chip) {
+      return chip.dataset.filter;
+    });
+
+    function applyFilter(filter, chipToPress) {
+      chips.forEach(function (chip) {
+        chip.setAttribute("aria-pressed", String(chip === chipToPress));
+      });
+      filterCards.forEach(function (card) {
+        card.hidden = filter !== "all" && card.dataset.category !== filter;
+      });
+    }
+
+    function chipFor(filter) {
+      return filterBar.querySelector('.filter-chip[data-filter="' + filter + '"]');
+    }
+
+    chips.forEach(function (chip) {
+      chip.addEventListener("click", function () {
+        var filter = chip.dataset.filter;
+        applyFilter(filter, chip);
+        var url = new URL(window.location.href);
+        if (filter === "all") {
+          url.searchParams.delete("category");
+        } else {
+          url.searchParams.set("category", filter);
+        }
+        window.history.pushState({ category: filter }, "", url);
+      });
+    });
+
+    window.addEventListener("popstate", function () {
+      var requested = new URL(window.location.href).searchParams.get("category") || "all";
+      if (validFilters.indexOf(requested) === -1) {
+        requested = "all";
+      }
+      applyFilter(requested, chipFor(requested));
+    });
+
+    filterBar.hidden = false;
+
+    var initialFilter = new URL(window.location.href).searchParams.get("category") || "all";
+    if (validFilters.indexOf(initialFilter) === -1) {
+      initialFilter = "all";
+    }
+    if (initialFilter !== "all") {
+      applyFilter(initialFilter, chipFor(initialFilter));
+    }
+  }
 })();
