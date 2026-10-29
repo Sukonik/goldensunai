@@ -157,6 +157,26 @@ The visual target is **Y2K technological optimism + modern product design + RPG-
 
 **GoldenSunAI** is always written as **one word**.
 
+### 🦅 Bald Eagle UI
+
+The site's own design system — vanilla HTML/CSS/JS tokens and components in `css/tokens.css` and `css/components.css`, not a package dependency. It borrows visual and interaction *thinking* from a few design systems the team admires, without introducing React, Tailwind, or a build step:
+
+- **Ant Design** → a layered elevation scale (`--gs-shadow-sm/md/lg`) instead of one-off shadows per component
+- **Primer** (GitHub's design system) → border-driven restraint and a strict 4px spacing scale (already how `--gs-space-*` was built)
+- **Radix Primitives** → state-driven styling off real ARIA attributes (`[aria-pressed]`, `[aria-current]`, `[aria-expanded]`) rather than extra class toggling
+- **MUI Base UI** → accessible-first, unstyled-by-default component structure
+- **shadcn/ui** → one neutral palette plus a single accent, generous whitespace, a restrained radius scale (`--gs-radius-sm/md/lg/pill`)
+
+**Bi-color gemstone looks** — an optional, independent axis from the five gemstone accent themes. Each pairs a brighter glow across the top quarter of the viewport with a second color as a deep, low-alpha tint bleeding into the black foundation for the rest of the page (real bi-color gemstones are banded color zones in a dark stone, not a flat two-tone fill, so that's the effect this aims for):
+
+| Look | Top | Bottom |
+| --- | --- | --- |
+| Ametrine | Citrine gold-orange | Amethyst purple |
+| Tourmaline (Watermelon) | Rose pink | Tourmaline green |
+| Fluorite | Cobalt blue | Deep amber |
+
+Selectable from the "Look" dropdown next to the theme picker (header on tablet+, always in the mobile drawer), persisted the same way the gemstone theme is. Default is Classic — the plain black foundation, unchanged.
+
 ### Core pages
 
 - 🏠 **Home**
