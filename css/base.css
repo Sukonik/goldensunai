@@ -28,6 +28,22 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* -- Bi-color gemstone looks (optional, see tokens.css) --------------------
+   Lighter top quarter, darker bottom three-quarters — measured against one
+   viewport height, since a literal fraction of total page height isn't a
+   stable thing across pages of very different lengths. A brief clear-black
+   band between the two tints (25vh–40vh-ish) keeps this reading as banded
+   stone rather than a muddy blend, and the black foundation stays fully
+   intact underneath and beyond it either way. */
+html[data-look] body {
+  background-image: linear-gradient(
+    to bottom,
+    var(--gs-look-top) 0,
+    transparent 25vh,
+    var(--gs-look-bottom) 60vh
+  );
+}
+
 img,
 svg {
   max-width: 100%;

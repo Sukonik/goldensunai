@@ -1,12 +1,14 @@
 /*
- * GoldenSunAI — main.js
- * Minimal vanilla JS: mobile navigation drawer + gemstone theme picker.
- * No frameworks, no build step, no dependencies.
+ * GoldenSunAI — main.js (Bald Eagle UI)
+ * Minimal vanilla JS: mobile navigation drawer, gemstone accent theme
+ * picker, and the optional bi-color gemstone "look." No frameworks, no
+ * build step, no dependencies.
  *
- * The theme itself is applied earlier, by a tiny inline script in each
- * page's <head> (reads localStorage, sets data-theme before first paint —
- * that one has to run before this file to avoid a flash of the wrong
- * theme). This file only keeps the <select> in sync and saves changes.
+ * Both the theme and the look are applied earlier, by a tiny inline
+ * script in each page's <head> (reads localStorage, sets data-theme /
+ * data-look before first paint — that one has to run before this file to
+ * avoid a flash of the wrong theme/look). This file only keeps the
+ * <select> elements in sync and saves changes.
  */
 (function () {
   "use strict";
@@ -32,6 +34,38 @@
           localStorage.setItem(THEME_KEY, theme);
         } catch (e) {
           /* private browsing / storage blocked — theme still applies for this load */
+        }
+      });
+    });
+  }
+
+  // -- Bi-color gemstone look (Ametrine / Tourmaline / Fluorite) -----------
+  // An independent axis from the accent theme above. "" (Classic) means no
+  // [data-look] attribute at all, not an empty one, so the CSS override in
+  // base.css simply doesn't match and the plain black foundation shows.
+  var LOOK_KEY = "gs-look";
+  var lookSelects = document.querySelectorAll(".look-picker__select");
+
+  if (lookSelects.length) {
+    var currentLook = document.documentElement.getAttribute("data-look") || "";
+
+    lookSelects.forEach(function (select) {
+      select.value = currentLook;
+
+      select.addEventListener("change", function () {
+        var look = select.value;
+        if (look) {
+          document.documentElement.setAttribute("data-look", look);
+        } else {
+          document.documentElement.removeAttribute("data-look");
+        }
+        lookSelects.forEach(function (other) {
+          other.value = look;
+        });
+        try {
+          localStorage.setItem(LOOK_KEY, look);
+        } catch (e) {
+          /* private browsing / storage blocked — look still applies for this load */
         }
       });
     });

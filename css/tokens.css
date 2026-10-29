@@ -1,6 +1,19 @@
 /* ==========================================================================
    GoldenSunAI — Design Tokens
    Black. Gold. Pixels. Technology. Exploration. Software. ☀️
+
+   Built on Bald Eagle UI — GoldenSunAI's own vanilla HTML/CSS/JS design
+   system. No React, no build step, no new dependency: the site stays
+   static HTML/CSS/vanilla JS per the project's standing "no new
+   framework" rule. What's borrowed is the visual/interaction THINKING of
+   a few design systems we admire, translated into this token system:
+     - Ant Design     → layered elevation scale, clear interactive states
+     - Primer (GitHub) → border-driven restraint, strict 4px spacing scale
+     - Radix Primitives → state-driven styling off real ARIA attributes
+       (we already do this: [aria-pressed], [aria-current], [aria-expanded])
+     - MUI Base UI    → accessible-first, unstyled-by-default components
+     - shadcn/ui       → neutral palette + one accent, generous whitespace,
+       restrained radius scale
    ========================================================================== */
 
 :root {
@@ -73,9 +86,20 @@
   --gs-radius-sm: 6px;
   --gs-radius-md: 12px;
   --gs-radius-lg: 20px;
+  --gs-radius-pill: 999px;
 
-  --gs-shadow-card: 0 1px 0 rgba(232, 183, 75, 0.06) inset,
+  /* Bald Eagle elevation scale — one consistent shadow language instead of
+     one-off box-shadows per component. sm = resting surfaces (inputs,
+     chips), md = cards at rest (same visual weight as the old
+     --gs-shadow-card, kept as an alias so nothing has to change), lg =
+     raised/hovered surfaces. */
+  --gs-shadow-sm: 0 1px 0 rgba(232, 183, 75, 0.05) inset,
+    0 2px 8px rgba(0, 0, 0, 0.3);
+  --gs-shadow-md: 0 1px 0 rgba(232, 183, 75, 0.06) inset,
     0 8px 24px rgba(0, 0, 0, 0.35);
+  --gs-shadow-lg: 0 1px 0 rgba(232, 183, 75, 0.08) inset,
+    0 16px 40px rgba(0, 0, 0, 0.45);
+  --gs-shadow-card: var(--gs-shadow-md);
 
   --gs-container: 72rem;
 
@@ -136,4 +160,37 @@
   --gs-globe-secondary: var(--gs-accent);
   --gs-globe-dim: var(--gs-accent);
   --gs-globe-glow: var(--gs-accent-strong);
+}
+
+/* ==========================================================================
+   Bi-color gemstone looks (Bald Eagle UI)
+   An independent axis from the gemstone accent theme above — "which accent
+   color" vs. "what does the page background do." Off by default (the
+   existing black foundation + single warm top glow, unchanged). Set via
+   [data-look] on <html>, persisted to localStorage by js/main.js.
+
+   Real bi-color gemstones aren't painted half one flat color, half
+   another — they're dark, translucent stones with saturated color ZONES.
+   So each look pairs a brighter glow for the page's top quarter with a
+   second color as a low-alpha tint bleeding into the black foundation for
+   the bottom three-quarters, not a flat fill — the black stays the
+   foundation everywhere, exactly as it does without a look selected.
+   ========================================================================== */
+
+[data-look="ametrine"] {
+  /* Citrine (warm gold-orange) above, deepening into Amethyst purple below */
+  --gs-look-top: rgba(242, 169, 59, 0.38);
+  --gs-look-bottom: rgba(120, 60, 170, 0.16);
+}
+
+[data-look="tourmaline"] {
+  /* Watermelon tourmaline: rose pink above, tourmaline green below */
+  --gs-look-top: rgba(236, 110, 150, 0.36);
+  --gs-look-bottom: rgba(30, 120, 90, 0.16);
+}
+
+[data-look="fluorite"] {
+  /* Fluorite banding: cobalt blue above, deep amber below */
+  --gs-look-top: rgba(90, 140, 240, 0.36);
+  --gs-look-bottom: rgba(220, 180, 40, 0.14);
 }

@@ -7,6 +7,8 @@
       try {
         var t = localStorage.getItem("gs-theme");
         if (t) document.documentElement.setAttribute("data-theme", t);
+        var l = localStorage.getItem("gs-look");
+        if (l) document.documentElement.setAttribute("data-look", l);
       } catch (e) {}
     })();
   </script>
@@ -50,6 +52,15 @@
             <option value="amethyst">🟣 Amethyst</option>
           </select>
         </div>
+        <div class="look-picker">
+          <label for="look-select" class="visually-hidden">Look</label>
+          <select id="look-select" class="look-picker__select" aria-label="Look">
+            <option value="">⬛ Classic</option>
+            <option value="ametrine">🟠🟣 Ametrine</option>
+            <option value="tourmaline">🩷🟢 Tourmaline</option>
+            <option value="fluorite">🔵🟡 Fluorite</option>
+          </select>
+        </div>
         <button
           class="nav-toggle"
           aria-expanded="false"
@@ -86,6 +97,15 @@
         <option value="sapphire">🔵 Sapphire</option>
         <option value="emerald">🟢 Emerald</option>
         <option value="amethyst">🟣 Amethyst</option>
+      </select>
+    </div>
+    <div class="look-picker look-picker--drawer">
+      <label for="look-select-drawer" class="visually-hidden">Look</label>
+      <select id="look-select-drawer" class="look-picker__select" aria-label="Look">
+        <option value="">⬛ Classic</option>
+        <option value="ametrine">🟠🟣 Ametrine</option>
+        <option value="tourmaline">🩷🟢 Tourmaline</option>
+        <option value="fluorite">🔵🟡 Fluorite</option>
       </select>
     </div>
     <p class="nav-drawer__footer">Built by Team GoldenSun. ☀️</p>
