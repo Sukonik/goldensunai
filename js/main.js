@@ -1,71 +1,52 @@
 /*
  * GoldenSunAI — main.js (Bald Eagle UI)
- * Minimal vanilla JS: mobile navigation drawer, gemstone accent theme
- * picker, and the optional bi-color gemstone "look." No frameworks, no
- * build step, no dependencies.
+ * Minimal vanilla JS: mobile navigation drawer, and one combined theme
+ * picker (five gemstone accents + three bi-color gemstone looks). No
+ * frameworks, no build step, no dependencies.
  *
- * Both the theme and the look are applied earlier, by a tiny inline
- * script in each page's <head> (reads localStorage, sets data-theme /
- * data-look before first paint — that one has to run before this file to
- * avoid a flash of the wrong theme/look). This file only keeps the
- * <select> elements in sync and saves changes.
+ * The theme is applied earlier, by a tiny inline script in each page's
+ * <head> (reads localStorage, sets data-theme / data-look before first
+ * paint — that one has to run before this file to avoid a flash of the
+ * wrong theme). This file only keeps the <select> elements in sync and
+ * saves changes.
  */
 (function () {
   "use strict";
 
   var THEME_KEY = "gs-theme";
+  // A bi-color look (Ametrine/Tourmaline/Fluorite) is one menu entry, but
+  // under the hood it's still an accent theme (for buttons, badges, etc.)
+  // plus a [data-look] background override — this is the one place that
+  // split gets reassembled, mirroring the inline head script.
+  var LOOK_ACCENT = { ametrine: "amethyst", tourmaline: "emerald", fluorite: "sapphire" };
+
   // Two copies exist on every page: one in the header (hidden below 560px,
   // per the mobile wordmark fix) and one in the drawer. Keep both in sync.
   var themeSelects = document.querySelectorAll(".theme-picker__select");
 
   if (themeSelects.length) {
-    var currentTheme = document.documentElement.getAttribute("data-theme") || "gold";
+    var currentLook = document.documentElement.getAttribute("data-look");
+    var currentSelection = currentLook || document.documentElement.getAttribute("data-theme") || "gold";
 
     themeSelects.forEach(function (select) {
-      select.value = currentTheme;
+      select.value = currentSelection;
 
       select.addEventListener("change", function () {
-        var theme = select.value;
-        document.documentElement.setAttribute("data-theme", theme);
-        themeSelects.forEach(function (other) {
-          other.value = theme;
-        });
-        try {
-          localStorage.setItem(THEME_KEY, theme);
-        } catch (e) {
-          /* private browsing / storage blocked — theme still applies for this load */
-        }
-      });
-    });
-  }
-
-  // -- Bi-color gemstone look (Ametrine / Tourmaline / Fluorite) -----------
-  // An independent axis from the accent theme above. "" (Classic) means no
-  // [data-look] attribute at all, not an empty one, so the CSS override in
-  // base.css simply doesn't match and the plain black foundation shows.
-  var LOOK_KEY = "gs-look";
-  var lookSelects = document.querySelectorAll(".look-picker__select");
-
-  if (lookSelects.length) {
-    var currentLook = document.documentElement.getAttribute("data-look") || "";
-
-    lookSelects.forEach(function (select) {
-      select.value = currentLook;
-
-      select.addEventListener("change", function () {
-        var look = select.value;
-        if (look) {
-          document.documentElement.setAttribute("data-look", look);
+        var selection = select.value;
+        var accent = LOOK_ACCENT[selection] || selection;
+        document.documentElement.setAttribute("data-theme", accent);
+        if (LOOK_ACCENT[selection]) {
+          document.documentElement.setAttribute("data-look", selection);
         } else {
           document.documentElement.removeAttribute("data-look");
         }
-        lookSelects.forEach(function (other) {
-          other.value = look;
+        themeSelects.forEach(function (other) {
+          other.value = selection;
         });
         try {
-          localStorage.setItem(LOOK_KEY, look);
+          localStorage.setItem(THEME_KEY, selection);
         } catch (e) {
-          /* private browsing / storage blocked — look still applies for this load */
+          /* private browsing / storage blocked — selection still applies for this load */
         }
       });
     });

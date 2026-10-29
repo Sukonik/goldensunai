@@ -164,10 +164,14 @@
 
 /* ==========================================================================
    Bi-color gemstone looks (Bald Eagle UI)
-   An independent axis from the gemstone accent theme above — "which accent
-   color" vs. "what does the page background do." Off by default (the
-   existing black foundation + single warm top glow, unchanged). Set via
-   [data-look] on <html>, persisted to localStorage by js/main.js.
+   Three entries in the one combined theme <select> (Ametrine, Tourmaline,
+   Fluorite) that carry both an accent theme AND a background treatment —
+   js/main.js maps each to an existing [data-theme] accent (see
+   LOOK_ACCENT) and sets [data-look] alongside it for the bit that's new:
+   "what does the page background do." Off by default (the existing black
+   foundation + single warm top glow, unchanged) for the other five
+   entries. Persisted to localStorage by js/main.js under the same
+   "gs-theme" key as the plain gemstone themes.
 
    Real bi-color gemstones aren't painted half one flat color, half
    another — they're dark, translucent stones with saturated color ZONES.
