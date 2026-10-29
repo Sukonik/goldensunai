@@ -96,7 +96,7 @@ The portfolio is organized into five categories, filterable on the [Work](./work
 
 | Project | Status | Focus |
 | --- | --- | --- |
-| ☀️ **GoldenSunAI** | **Internal** | The brand, design system, and site platform itself |
+| ☀️ **GoldenSunAI** | **Internal** | The brand and site platform itself, built on Bald Eagle UI |
 | 🗺️ **Golden Sun Atlas** | **Coming Soon** | Portable local-AI computing platform spanning Atlas Desktop and Atlas OS |
 | 🏰 **GoldCastle** | **Coming Soon** | Upcoming GoldenSunAI project · details to be announced |
 | 🧪 **GoldenSunDash** | **Internal** | Upcoming GoldenSunAI system · details to be announced |
@@ -176,6 +176,8 @@ The site's own design system — vanilla HTML/CSS/JS tokens and components in `c
 | 🟡 Fluorite | Sapphire | Cobalt blue | Deep amber |
 
 Default stays Gold, exactly as before — the plain black foundation with no bi-color look. Selecting a look sets its accent theme automatically, so it's one choice, not a combination to configure.
+
+**A note on where this could go.** The current vanilla approach is working well and isn't being replaced. If the site ever outgrows it, the deliberate next step — not React, not a component-library dependency — would be Bald Eagle UI becoming its own lightweight framework: still HTML5/CSS/JavaScript at its core, with Tailwind for utility-class styling and a small Node build step (compiling Tailwind, nothing heavier). That keeps the site's actual output just as fast and dependency-light as it is today, while giving it a real build pipeline if one ever becomes worth the cost. This is a future option to evaluate when there's a concrete reason to, not a plan in motion.
 
 ### Core pages
 
