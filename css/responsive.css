@@ -14,17 +14,6 @@
   }
 }
 
-/* -- Look picker ----------------------------------------------------------
-   Secondary/optional control (the bi-color gemstone looks) — stays out of
-   the header on anything narrower than tablet, so two <select> controls
-   never compete with the wordmark and hamburger for room. Always available
-   in the drawer regardless of width. */
-@media (max-width: 767px) {
-  .site-header__controls .look-picker {
-    display: none;
-  }
-}
-
 /* -- Small tablets and up ------------------------------------------------*/
 @media (min-width: 640px) {
   .card-grid {

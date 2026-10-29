@@ -167,15 +167,15 @@ The site's own design system — vanilla HTML/CSS/JS tokens and components in `c
 - **MUI Base UI** → accessible-first, unstyled-by-default component structure
 - **shadcn/ui** → one neutral palette plus a single accent, generous whitespace, a restrained radius scale (`--gs-radius-sm/md/lg/pill`)
 
-**Bi-color gemstone looks** — an optional, independent axis from the five gemstone accent themes. Each pairs a brighter glow across the top quarter of the viewport with a second color as a deep, low-alpha tint bleeding into the black foundation for the rest of the page (real bi-color gemstones are banded color zones in a dark stone, not a flat two-tone fill, so that's the effect this aims for):
+**Bi-color gemstone looks** — three extra entries in the same Theme dropdown (one menu, not two), alongside the five plain gemstone accents. Each pairs a brighter glow across the top quarter of the viewport with a second color as a deep, low-alpha tint bleeding into the black foundation for the rest of the page (real bi-color gemstones are banded color zones in a dark stone, not a flat two-tone fill, so that's the effect this aims for):
 
-| Look | Top | Bottom |
-| --- | --- | --- |
-| Ametrine | Citrine gold-orange | Amethyst purple |
-| Tourmaline (Watermelon) | Rose pink | Tourmaline green |
-| Fluorite | Cobalt blue | Deep amber |
+| Look | Accent used | Top | Bottom |
+| --- | --- | --- | --- |
+| 🟠 Ametrine | Amethyst | Citrine gold-orange | Amethyst purple |
+| 🟤 Tourmaline (Watermelon) | Emerald | Rose pink | Tourmaline green |
+| 🟡 Fluorite | Sapphire | Cobalt blue | Deep amber |
 
-Selectable from the "Look" dropdown next to the theme picker (header on tablet+, always in the mobile drawer), persisted the same way the gemstone theme is. Default is Classic — the plain black foundation, unchanged.
+Default stays Gold, exactly as before — the plain black foundation with no bi-color look. Selecting a look sets its accent theme automatically, so it's one choice, not a combination to configure.
 
 ### Core pages
 

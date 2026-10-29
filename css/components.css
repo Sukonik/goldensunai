@@ -76,8 +76,7 @@
    the theme name, never color alone.
    ------------------------------------------------------------------------*/
 
-.theme-picker__select,
-.look-picker__select {
+.theme-picker__select {
   appearance: none;
   background: var(--gs-bg-raised)
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23c9c0a8' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
@@ -93,8 +92,7 @@
   max-width: 9rem;
 }
 
-.theme-picker__select:hover,
-.look-picker__select:hover {
+.theme-picker__select:hover {
   border-color: var(--gs-accent);
 }
 
@@ -171,16 +169,11 @@
   margin-top: var(--gs-space-8);
 }
 
-.theme-picker--drawer .theme-picker__select,
-.look-picker--drawer .look-picker__select {
+.theme-picker--drawer .theme-picker__select {
   width: 100%;
   max-width: none;
   font-size: var(--gs-fs-base);
   padding: var(--gs-space-3) var(--gs-space-4);
-}
-
-.look-picker--drawer {
-  margin-top: var(--gs-space-4);
 }
 
 .nav-drawer__footer {
